@@ -33,7 +33,7 @@ public class Subscribe {
     public static void main(String[] args) {
         try
         {
-            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://beast:5007/OPCUA/SimulationServer").get();
+            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://127.0.0.1").get();
 
             OpcUaClientConfigBuilder cfg = new OpcUaClientConfigBuilder();
             cfg.setEndpoint(endpoints.get(0));
@@ -41,7 +41,7 @@ public class Subscribe {
             OpcUaClient client = OpcUaClient.create(cfg.build());
             client.connect().get();
 
-            NodeId nodeId = NodeId.parse("ns=3;i=1002");
+            NodeId nodeId = NodeId.parse("ns=6;s=::Program:Cube.Command.Parameter[0].Value");
 
             // what to read
             ReadValueId readValueId = new ReadValueId(nodeId, AttributeId.Value.uid(), null, null);
