@@ -4,17 +4,19 @@
 </header>
 
 <body>
-<h1>SHow productions</h1>
+<h1>Show productions</h1>
 
-<form action="">
-    <button>
-        <input type="button" value="Go back!" onclick="history.back()">
-    </button>
+<form>
+    <a href="{{route("home")}}">Back</a>
 
     <button>
-        <input type="button" value="Home" onclick="{{route("home")}}">
+        <a href="javascript:history.back()">Go Back</a>
     </button>
-</form>{{--<a href="{{route('Home')}}">Back</a>--}}
+
+
+
+</form>
+
 
 </body>
 </html>

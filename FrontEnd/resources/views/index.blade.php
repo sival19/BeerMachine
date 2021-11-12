@@ -6,7 +6,7 @@
 <body>
 
 <h1>Index</h1>
-<a href="{{route("home")}}">Back</a>
-<a href="{{route("show_productions-link")}}"></a>
+
+<a href="{{route("show_productions-link")}}">Show productions</a>
 </body>
 </html>
