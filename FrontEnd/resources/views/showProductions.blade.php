@@ -6,6 +6,12 @@
 <body>
 <h1>Show productions</h1>
 
+<h2>
+    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+
+</h2>
+
+
 <form>
     <a href="{{route("home")}}">Back</a>
 
@@ -17,6 +23,14 @@
 
 </form>
 
+<script type="text/javascript">
+    var channel = window.pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+        console.log('Received my-event with message: ' + data.message);
+        document.write(data.message.value);
+    });
 
+
+</script>
 </body>
 </html>
