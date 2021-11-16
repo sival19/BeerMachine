@@ -10,8 +10,10 @@
  */
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
+import com.pusher.rest.Pusher;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
 import org.eclipse.milo.opcua.sdk.client.api.subscriptions.UaMonitoredItem;
@@ -41,7 +43,7 @@ public class Subscribe {
             OpcUaClient client = OpcUaClient.create(cfg.build());
             client.connect().get();
 
-            NodeId nodeId = NodeId.parse("ns=6;s=::Program:Cube.Command.Parameter[0].Value");
+            NodeId nodeId = NodeId.parse("ns=6;s=::Program:Cube.Admin.ProdProcessedCount");
 
             // what to read
             ReadValueId readValueId = new ReadValueId(nodeId, AttributeId.Value.uid(), null, null);
@@ -78,7 +80,7 @@ public class Subscribe {
             }
 
             // let the example run for 50 seconds then terminate
-            Thread.sleep(50000);
+            Thread.sleep(5000000);
         }
         catch(Throwable ex)
         {
@@ -89,5 +91,10 @@ public class Subscribe {
 
     private static void onSubscriptionValue(UaMonitoredItem item, DataValue value) {
         System.out.println("subscription value received: item="+ item.getReadValueId().getNodeId() + ", value=" + value.getValue());
+        Pusher pusher = new Pusher("1296403", "bb1e7f7e02b15b9d2e7b", "77f7d6cfb7ccffdad051");
+        pusher.setCluster("eu");
+        pusher.setEncrypted(true);
+
+        pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", value.getValue()));
     }
 }
