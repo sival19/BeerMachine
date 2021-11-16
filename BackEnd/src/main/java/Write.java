@@ -56,7 +56,7 @@ public class Write {
             client.writeValue(nodeId6, DataValue.valueOnly(new Variant((float)200.0))).get();
 
             //start the shit up
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(1);
             NodeId nodeId7 = NodeId.parse("ns=6;s=::Program:Cube.Command.CntrlCmd");
             client.writeValue(nodeId7, DataValue.valueOnly(new Variant(2))).get();
             NodeId nodeId8 = NodeId.parse("ns=6;s=::Program:Cube.Command.CmdChangeRequest");
