@@ -6,10 +6,8 @@
 <body>
 <h1>Show productions</h1>
 
-<h2>
-    <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+<script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
-</h2>
 
 
 <form>
@@ -19,18 +17,13 @@
         <a href="javascript:history.back()">Go Back</a>
     </button>
 
+    <br>
+    <label>ProductCount:</label>
+    <input type="text" name="code" value="" id="beerProdCount">
 
 
 </form>
 
-<script type="text/javascript">
-    var channel = window.pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
-        console.log('Received my-event with message: ' + data.message);
-        document.write(data.message.value);
-    });
-
-
-</script>
+<script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
 </body>
 </html>
