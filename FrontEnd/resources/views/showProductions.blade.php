@@ -11,7 +11,7 @@
 
 
 <form>
-    <a href="{{route("home")}}">Back</a>
+{{--    <a href="{{route("home")}}">Back</a>--}}
 
     <button>
         <a href="javascript:history.back()">Go Back</a>
@@ -20,8 +20,12 @@
     <br>
     <label>ProductCount:</label>
     <input type="text" name="code" value="" id="beerProdCount">
+</form>
 
-
+<form>
+    <br>
+    <h3> See a specific production:</h3>
+    <a href="{{route("show_production-link")}}">See a production</a>
 </form>
 
 <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>

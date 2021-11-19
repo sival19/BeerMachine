@@ -88,4 +88,9 @@ class ProductionController extends Controller
     {
         return view('showProductions');
     }
+
+    public function show_production()
+    {
+        return view('showProduction');
+    }
 }
