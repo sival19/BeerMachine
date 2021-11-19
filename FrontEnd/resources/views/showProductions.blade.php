@@ -5,6 +5,7 @@
 
 <body>
 <h1>Show productions</h1>
+<h2>Test</h2>
 
 <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
