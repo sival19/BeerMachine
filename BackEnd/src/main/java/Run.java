@@ -10,14 +10,12 @@ public class Run implements Runnable{
 
                 Thread t1 = new Thread(){
             public void run () {
-//                Run run = new Run();
                 Subscribe subscribe = new Subscribe();
                 subscribe.getValues("ns=6;s=::Program:product.produced", "my-event");
             }
         };
         Thread t2 = new Thread(){
                 public void run () {
-//                    Run run = new Run();
                     Subscribe subscribe = new Subscribe();
                     subscribe.getValues("ns=6;s=::Program:Cube.Command.Parameter[0].Value", "new-event");
                 }
