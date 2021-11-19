@@ -15,7 +15,11 @@ class CreateProductionSensorDataTable extends Migration
     {
         Schema::create('production_sensor_data', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('production_id');
             $table->timestamps();
+
+
+            $table->foreign('production_id')->references('id')->on('productions');
         });
     }
 
