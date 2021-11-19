@@ -20,6 +20,10 @@
     <br>
     <label>ProductCount:</label>
     <input type="text" name="code" value="" id="beerProdCount">
+
+    <br>
+    <label>Prod:</label>
+    <input type="text" name="code" value="" id="beer">
 </form>
 
 <form>
