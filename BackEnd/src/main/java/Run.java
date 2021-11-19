@@ -7,7 +7,7 @@ public class Run implements Runnable{
 
 
     public static void main(String[] args) {
-        //Run run = new Run();
+
                 Thread t1 = new Thread(){
             public void run () {
 //                Run run = new Run();
