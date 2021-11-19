@@ -30,12 +30,17 @@ import org.eclipse.milo.opcua.stack.core.types.structured.MonitoringParameters;
 import org.eclipse.milo.opcua.stack.core.types.structured.ReadValueId;
 import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.UInteger;
 import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.Unsigned;
+import static com.google.common.collect.Lists.newArrayList;
+
 
 public class Subscribe {
-    public static void main(String[] args) {
+    private String endPoint = "opc.tcp://127.0.0.1";
+    public static Subscribe subscribe = new Subscribe();
+
+    public void getValues(String nodeId, String event){
         try
         {
-            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://127.0.0.1").get();
+            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints(endPoint).get();
 
             OpcUaClientConfigBuilder cfg = new OpcUaClientConfigBuilder();
             cfg.setEndpoint(endpoints.get(0));
@@ -43,10 +48,10 @@ public class Subscribe {
             OpcUaClient client = OpcUaClient.create(cfg.build());
             client.connect().get();
 
-            NodeId nodeId = NodeId.parse("ns=6;s=::Program:Cube.Admin.ProdProcessedCount");
+            NodeId nodeIdparse = NodeId.parse(nodeId);
 
             // what to read
-            ReadValueId readValueId = new ReadValueId(nodeId, AttributeId.Value.uid(), null, null);
+            ReadValueId readValueId = new ReadValueId(nodeIdparse, AttributeId.Value.uid(), null, null);
 
             // create a subscription @ 1000ms
             UaSubscription subscription = client.getSubscriptionManager().createSubscription(1000.0).get();
@@ -61,25 +66,22 @@ public class Subscribe {
                     true        // discard oldest
             );
 
-            // creation request
-            MonitoredItemCreateRequest request = new MonitoredItemCreateRequest(readValueId, MonitoringMode.Reporting, parameters);
+            MonitoredItemCreateRequest request = new MonitoredItemCreateRequest(
+                    readValueId, MonitoringMode.Reporting, parameters);
 
+            List<UaMonitoredItem> items = subscription
+                    .createMonitoredItems(TimestampsToReturn.Both, newArrayList(request)).get();
 
-            // setting the consumer after the subscription creation
-            UaSubscription.ItemCreationCallback onItemCreated =  (item, id) -> item.setValueConsumer(Subscribe::onSubscriptionValue);
-
-
-            List<UaMonitoredItem> items = subscription.createMonitoredItems(TimestampsToReturn.Both, Arrays.asList(request), onItemCreated).get();
-
-            for (UaMonitoredItem item : items) {
-                if (item.getStatusCode().isGood()) {
-                    System.out.println("item created for nodeId=" + item.getReadValueId().getNodeId());
-                } else{
-                    System.out.println("failed to create item for nodeId=" + item.getReadValueId().getNodeId() + " (status=" + item.getStatusCode() + ")");
-                }
-            }
-
-            // let the example run for 50 seconds then terminate
+            // do something with the value updates
+            UaMonitoredItem item = items.get(0);
+            item.setValueConsumer(v -> {
+                v.getValue();
+                Pusher pusher = new Pusher("1296403", "bb1e7f7e02b15b9d2e7b", "77f7d6cfb7ccffdad051");
+                pusher.setCluster("eu");
+                pusher.setEncrypted(true);
+                pusher.trigger("my-channel", event, Collections.singletonMap("message", v.getValue()));
+                System.out.println(v.getValue());
+            });
             Thread.sleep(5000000);
         }
         catch(Throwable ex)
@@ -89,12 +91,6 @@ public class Subscribe {
 
     }
 
-    private static void onSubscriptionValue(UaMonitoredItem item, DataValue value) {
-        System.out.println("subscription value received: item="+ item.getReadValueId().getNodeId() + ", value=" + value.getValue());
-        Pusher pusher = new Pusher("1296403", "bb1e7f7e02b15b9d2e7b", "77f7d6cfb7ccffdad051");
-        pusher.setCluster("eu");
-        pusher.setEncrypted(true);
 
-        pusher.trigger("my-channel", "my-event", Collections.singletonMap("message", value.getValue()));
-    }
+
 }
