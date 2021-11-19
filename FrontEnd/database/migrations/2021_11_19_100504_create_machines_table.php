@@ -15,7 +15,7 @@ class CreateMachinesTable extends Migration
     {
         Schema::create('machines', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('status');   // Should be an ENUM
         });
     }
 
