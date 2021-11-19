@@ -35,7 +35,7 @@ class ProductionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -87,5 +87,10 @@ class ProductionController extends Controller
     public function show_productions()
     {
         return view('showProductions');
+    }
+
+    public function show_production()
+    {
+        return view('showProduction');
     }
 }
