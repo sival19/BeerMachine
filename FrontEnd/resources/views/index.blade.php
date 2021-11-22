@@ -1,7 +1,7 @@
 <html>
-<header>
+<head>
     <title>Index</title>
-</header>
+</head>
 
 <body>
 

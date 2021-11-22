@@ -1,7 +1,7 @@
 <html>
-<header>
+<head>
     <title>Start production</title>
-</header>
+</head>
 
 <body>
 <h1>Start production</h1>
