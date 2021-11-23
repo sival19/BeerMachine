@@ -11,18 +11,47 @@ public class Run implements Runnable{
                 Thread t1 = new Thread(){
             public void run () {
                 Subscribe subscribe = new Subscribe();
-                subscribe.getValues("ns=6;s=::Program:product.produced", "my-event");
+                subscribe.getValues("ns=6;s=::Program:product.produced", "production.produced");
             }
         };
         Thread t2 = new Thread(){
                 public void run () {
                     Subscribe subscribe = new Subscribe();
-                    subscribe.getValues("ns=6;s=::Program:Cube.Command.Parameter[0].Value", "new-event");
+                    subscribe.getValues("ns=6;s=::Program:Cube.Admin.ProdDefectiveCount", "production.Defective");
+                }
+        };
+        Thread t3 = new Thread(){
+                public void run () {
+                    Subscribe subscribe = new Subscribe();
+                    subscribe.getValues("ns=6;s=::Program:product.good", "production.Good");
+                }
+        };
+        Thread t4 = new Thread(){
+                public void run () {
+                    Subscribe subscribe = new Subscribe();
+                    subscribe.getValues("ns=6;s=::Program:Data.Value.RelHumidity", "sensor.Humidity");
+                }
+        };
+
+        Thread t5 = new Thread(){
+                public void run () {
+                    Subscribe subscribe = new Subscribe();
+                    subscribe.getValues("ns=6;s=::Program:Data.Value.Temperature", "sensor.Temperature");
+                }
+        };
+        Thread t6 = new Thread(){
+                public void run () {
+                    Subscribe subscribe = new Subscribe();
+                    subscribe.getValues("ns=6;s=::Program:Data.Value.Vibration", "sensor.Vibration");
                 }
         };
 
         t1.start();
         t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
+        t6.start();
 
     }
 

@@ -9,6 +9,7 @@
  * @author athil
  */
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -34,8 +35,13 @@ import static com.google.common.collect.Lists.newArrayList;
 
 
 public class Subscribe {
-    private String endPoint = "opc.tcp://127.0.0.1";
+//    private String endPoint = "opc.tcp://127.0.0.1";
+    private String endPoint = "opc.tcp://192.168.0.122:4840";
     public static Subscribe subscribe = new Subscribe();
+    private URI uri;
+    private String host = "192.168.0.122";
+    private int port = 4840;
+
 
     public void getValues(String nodeId, String event){
         try
@@ -43,7 +49,27 @@ public class Subscribe {
             List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints(endPoint).get();
 
             OpcUaClientConfigBuilder cfg = new OpcUaClientConfigBuilder();
-            cfg.setEndpoint(endpoints.get(0));
+
+            EndpointDescription original = endpoints.get(0);
+            this.uri = new URI(original.getEndpointUrl()).parseServerAuthority();
+            String endpointURL = String.format(
+                    "%s://%s:%s%s",
+                    this.uri.getScheme(),
+                    this.host,
+                    this.uri.getPort(),
+                    this.uri.getPath()
+            );
+
+            EndpointDescription endpoint = new EndpointDescription(endpointURL,
+                    original.getServer(),
+                    original.getServerCertificate(),
+                    original.getSecurityMode(),
+                    original.getSecurityPolicyUri(),
+                    original.getUserIdentityTokens(),
+                    original.getTransportProfileUri(),
+                    original.getSecurityLevel());
+
+            cfg.setEndpoint(endpoint);
 
             OpcUaClient client = OpcUaClient.create(cfg.build());
             client.connect().get();
@@ -60,7 +86,7 @@ public class Subscribe {
             UInteger clientHandle = subscription.getSubscriptionId();
             MonitoringParameters parameters = new MonitoringParameters(
                     clientHandle,
-                    1000.0,     // sampling interval
+                    200.0,     // sampling interval
                     null,       // filter, null means use default
                     Unsigned.uint(10),   // queue size
                     true        // discard oldest

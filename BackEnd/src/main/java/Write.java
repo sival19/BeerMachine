@@ -9,6 +9,7 @@
  * @author athil
  */
 
+import java.net.URI;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -22,13 +23,42 @@ import org.eclipse.milo.opcua.stack.core.types.structured.EndpointDescription;
 
 public class Write {
 
+
     public static void main(String[] args) {
+        URI uri;
+        String host = "192.168.0.122";
+        int port = 4840;
         try
         {
-            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://127.0.0.1").get();
+            //opc.tcp://192.168.0.122:4840
+            //opc.tcp://127.0.0.1
+
+            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://192.168.0.122").get();
 
             OpcUaClientConfigBuilder cfg = new OpcUaClientConfigBuilder();
-            cfg.setEndpoint(endpoints.get(0));
+
+            EndpointDescription original = endpoints.get(0);
+            uri = new URI(original.getEndpointUrl()).parseServerAuthority();
+            String endpointURL = String.format(
+                    "%s://%s:%s%s",
+                    uri.getScheme(),
+                    host,
+                    uri.getPort(),
+                    uri.getPath()
+            );
+
+            EndpointDescription endpoint = new EndpointDescription(endpointURL,
+                    original.getServer(),
+                    original.getServerCertificate(),
+                    original.getSecurityMode(),
+                    original.getSecurityPolicyUri(),
+                    original.getUserIdentityTokens(),
+                    original.getTransportProfileUri(),
+                    original.getSecurityLevel());
+
+            cfg.setEndpoint(endpoint);
+
+            cfg.setEndpoint(endpoint);
 
             OpcUaClient client = OpcUaClient.create(cfg.build());
             client.connect().get();
@@ -53,7 +83,7 @@ public class Write {
 
             //set mach speed to 200
             NodeId nodeId6 = NodeId.parse("ns=6;s=::Program:Cube.Command.MachSpeed");
-            client.writeValue(nodeId6, DataValue.valueOnly(new Variant((float)200.0))).get();
+            client.writeValue(nodeId6, DataValue.valueOnly(new Variant((float)100.0))).get();
 
             //start the shit up
             TimeUnit.SECONDS.sleep(1);
