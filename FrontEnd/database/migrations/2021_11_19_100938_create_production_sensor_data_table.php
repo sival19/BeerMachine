@@ -18,6 +18,8 @@ class CreateProductionSensorDataTable extends Migration
         Schema::create('production_sensor_data', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('production_id');
+            $table->string('type');
+            $table->float('value');
             $table->timestamps();
 
 

@@ -16,12 +16,15 @@ class CreateProductionsTable extends Migration
         Schema::create('productions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('machine_id');
-            $table->integer('size');
+            $table->unsignedBigInteger('beer_type');
+            $table->integer('production_size');
             $table->integer('succeeded_count');
             $table->integer('failed_count');
             $table->timestamps();
 
-            $table->foreign('machine_status')->references('status')->on('machine');
+
+            $table->foreign('machine_id')->references('id')->on('machine');
+            $table->foreign('beer_type')->references('id')->on('beers');
         });
     }
 
