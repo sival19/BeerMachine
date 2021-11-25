@@ -1,3 +1,6 @@
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.pusher.client.PusherOptions;
 import com.pusher.client.channel.Channel;
 import com.pusher.client.Pusher;
@@ -37,7 +40,16 @@ public class SubscribePusher {
         channel.bind("production.produced", new SubscriptionEventListener() {
             @Override
             public void onEvent(PusherEvent event) {
-                System.out.println("Received event with data: " + event.toString());
+                JsonParser parser = new JsonParser();
+                JsonObject json = (JsonObject) parser.parse(event.getData());
+                JsonElement json1 = json.getAsJsonObject("message").getAsJsonObject("value").get("value");
+//                json.getAsJsonObject("message").getAsJsonObject("value").get("value");
+
+
+                System.out.println("Received event with data: ");
+                System.out.println(json1);
+
+
             }
         });
 
