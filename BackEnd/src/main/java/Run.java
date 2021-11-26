@@ -1,3 +1,8 @@
+import Objects.Production;
+import database.IDataManager;
+import database.databaseManager;
+import org.eclipse.milo.opcua.stack.core.types.builtin.Variant;
+
 public class Run implements Runnable{
 
     public void newSubscribe(String nodeId, String event){
@@ -7,11 +12,17 @@ public class Run implements Runnable{
 
 
     public static void main(String[] args) {
+        IDataManager iDataManager;
+        iDataManager = databaseManager.getInstance();
+        Subscribe subscribe = new Subscribe();
 
-                Thread t1 = new Thread(){
+
+        Thread t1 = new Thread(){
             public void run () {
                 Subscribe subscribe = new Subscribe();
                 subscribe.getValues("ns=6;s=::Program:product.produced", "production.produced");
+
+
             }
         };
         Thread t2 = new Thread(){

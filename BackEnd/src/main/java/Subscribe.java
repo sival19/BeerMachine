@@ -23,6 +23,7 @@ import org.eclipse.milo.opcua.stack.client.DiscoveryClient;
 import org.eclipse.milo.opcua.stack.core.AttributeId;
 import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
 import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
+import org.eclipse.milo.opcua.stack.core.types.builtin.Variant;
 import org.eclipse.milo.opcua.stack.core.types.enumerated.MonitoringMode;
 import org.eclipse.milo.opcua.stack.core.types.enumerated.TimestampsToReturn;
 import org.eclipse.milo.opcua.stack.core.types.structured.EndpointDescription;
@@ -42,9 +43,10 @@ public class Subscribe {
     private String host = "127.0.0.1";
 //    private String host = "192.168.0.122";
     private int port = 4840;
+    private Variant value;
 
 
-    public void getValues(String nodeId, String event){
+    public Variant getValues(String nodeId, String event){
         try
         {
             List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints(endPoint).get();
@@ -102,7 +104,7 @@ public class Subscribe {
             // do something with the value updates
             UaMonitoredItem item = items.get(0);
             item.setValueConsumer(v -> {
-                v.getValue();
+                value = v.getValue();
                 Pusher pusher = new Pusher("1296403", "bb1e7f7e02b15b9d2e7b", "77f7d6cfb7ccffdad051");
                 pusher.setCluster("eu");
                 pusher.setEncrypted(true);
@@ -116,6 +118,12 @@ public class Subscribe {
             ex.printStackTrace();
         }
 
+        return value;
+
+    }
+
+    public Variant returnValue(){
+        return value;
     }
 
 

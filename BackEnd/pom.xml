@@ -20,9 +20,20 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>com.pusher</groupId>
-            <artifactId>pusher-java-client</artifactId>
-            <version>2.2.7</version>
+            <groupId>org.eclipse.milo</groupId>
+            <artifactId>client-examples</artifactId>
+            <version>0.6.3</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.27</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
+        </dependency>
+
     </dependencies>
 </project>
