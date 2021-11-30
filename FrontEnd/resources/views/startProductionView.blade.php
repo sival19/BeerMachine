@@ -18,12 +18,12 @@ Current Production
     <div class="mb-3">
         <label for="productType" class="form-label">Select type of beer</label><br>
         <select type="text" name="Production Type" class="form-control name" id="productType" required>
-            <option value="0">Pilsner</option>
-            <option value="1">Wheat</option>
-            <option value="2">IPA</option>
-            <option value="3">Stout</option>
-            <option value="4">Ale</option>
-            <option value="5">Alchol Free</option>
+            <option value="0.0">Pilsner</option>
+            <option value="1.0">Wheat</option>
+            <option value="2.0">IPA</option>
+            <option value="3.0">Stout</option>
+            <option value="4.0">Ale</option>
+            <option value="5.0">Alchol Free</option>
         </select>
     </div> <br>
 

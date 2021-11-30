@@ -1,4 +1,4 @@
-/*
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -38,18 +38,18 @@ public class SubscribePusher {
         Channel channel = pusher.subscribe("my-channel");
 
 // Bind to listen for events called "my-event" sent to "my-channel"
-        channel.bind("production.produced", new SubscriptionEventListener() {
+        channel.bind("App\\Events\\startProdEvent", new SubscriptionEventListener() {
             @Override
             public void onEvent(PusherEvent event) {
-                JsonParser parser = new JsonParser();
-                JsonObject json = (JsonObject) parser.parse(event.getData());
-                JsonElement json1 = json.getAsJsonObject("message").getAsJsonObject("value").get("value");
+
+//                JsonParser parser = new JsonParser();
+//                JsonObject json = (JsonObject) parser.parse(event.getData());
+//                System.out.println(json);
+//                JsonElement json1 = json.getAsJsonObject("message").getAsJsonObject("value").get("value");
 //                json.getAsJsonObject("message").getAsJsonObject("value").get("value");
-
-
                 System.out.println("Received event with data: ");
-                System.out.println(json1);
-
+                System.out.println(event.toString());
+//                System.out.println(json1);
 
             }
         });
@@ -63,15 +63,7 @@ public class SubscribePusher {
 // The state change listener is notified when the connection has been re-established,
 // the subscription to "my-channel" and binding on "my-event" still exist.
         while(true) ;
-
-//        Pusher pusher = new Pusher("1296403");
-//        pusher.setCluster("eu");
-//        pusher.setEncrypted(true);
-//        Channel channel = pusher.subscribe("my-channel");
-
-//        pusher.trigger("my-channel", "my event", Collections.singletonMap("message", v.getValue()));
     }
 
 
 }
-*/

@@ -34,6 +34,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.25</version>
         </dependency>
+        <dependency>
+            <groupId>com.pusher</groupId>
+            <artifactId>pusher-java-client</artifactId>
+            <version>2.2.7</version>
+        </dependency>
 
     </dependencies>
 </project>

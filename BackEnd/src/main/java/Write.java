@@ -28,15 +28,15 @@ public class Write {
 
     public static void main(String[] args) {
         URI uri;
-        String host = "192.168.0.122";
-//        String host = "127.0.0.1";
+//        String host = "192.168.0.122";
+        String host = "127.0.0.1";
         int port = 4840;
         try
         {
             //opc.tcp://192.168.0.122:4840
             //opc.tcp://127.0.0.1
 
-            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://192.168.0.122").get();
+            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://127.0.0.1").get();
 
             OpcUaClientConfigBuilder cfg = new OpcUaClientConfigBuilder();
 
