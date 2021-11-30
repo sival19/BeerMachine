@@ -54,17 +54,22 @@ public class Read {
             Variant ProductionSizeVariant = ProductionSizeValue.getValue();
             Variant BeerTypeVariant = BeerTypeValue.getValue();
 
+            // Make java.lang.Float to float, for it to be type casted to integer
+            float BeerTypeFloat =   (Float) BeerTypeVariant.getValue();
+
+
+
             //System.out.println("Variant= " + variant);
 
             // Variant gets parsed to the required type;
             int failed = (int) failedVariant.getValue();
             int ProductionSize = (int) ProductionSizeVariant.getValue();
-            //int BeerType = (int) BeerTypeValue.getValue().getValue();
+            int BeerType = (int) BeerTypeFloat + 1;
             //System.out.println("myVariable= " + random);
 
             Production production = new Production();
             production.setProductionSize(ProductionSize);
-            production.setBeerType(1);
+            production.setBeerType(BeerType);
             production.setMachineId(2);
             production.setSucceededCount(500);
             production.setFailedCount(failed);
