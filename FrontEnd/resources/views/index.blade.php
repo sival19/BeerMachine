@@ -12,6 +12,8 @@
 <a href="{{route("production.current")}}">Show current production</a>
 <br>
 <a href="{{route("production.start")}}">Start a production</a>
+<br>
+<a href="{{ route("test") }}">TESTPLACE BITCHEEEEEESSSS!!!!!!!</a>
 
 </body>
 </html>

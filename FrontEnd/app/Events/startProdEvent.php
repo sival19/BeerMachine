@@ -13,15 +13,16 @@ use Illuminate\Queue\SerializesModels;
 class startProdEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+    public $message;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($message)
     {
-        //
+        $this->message = $message;
     }
 
     public function broadcastToEveryone()
@@ -30,9 +31,9 @@ class startProdEvent implements ShouldBroadcast
 
     }
 
-    public function broadcastWith(){
-        return ['1' => '2'];
-    }
+//    public function broadcastWith(){
+//        return ['1' => '2'];
+//    }
 
 
     /**
@@ -42,6 +43,7 @@ class startProdEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
+
         return new Channel('my-channel');
     }
 }

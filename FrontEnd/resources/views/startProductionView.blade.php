@@ -13,7 +13,7 @@ Current Production
 <h1>Start a Production</h1>
 
 <br>
-<form method="" action="/createProduction">
+<form method="post" action="/createProduction">
 @csrf
     <div class="mb-3">
         <label for="productType" class="form-label">Select type of beer</label><br>
@@ -32,7 +32,7 @@ Current Production
         <input type="number" name="Production Amount" class="form-control name" id="productionAmount" placeholder="1000" required>
     </div><br>
     <div class="mb-3">
-        <label for="machineSpeed" class="form-label">Enter desired machine speed</label><br>
+        <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed</label><br>
         <input type="number" name="Machine Speed" class="form-control name" id="machineSpeed" placeholder="50" required>
     </div><br>
 

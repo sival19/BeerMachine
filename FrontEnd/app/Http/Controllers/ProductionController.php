@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\startProdEvent;
 use App\Models\Production;
 use Illuminate\Http\Request;
 
@@ -100,8 +101,19 @@ class ProductionController extends Controller
         return view('showProduction');
     }
 
+    public function beginProduction(Request $request){
+
+        event(new startProdEvent($request->input('machineSpeed')));
+        return back();
+    }
+
+    public function test(){
+        return view('test');
+    }
+
     public function startProduction()
     {
+
         return view('startProductionView');
     }
 }
