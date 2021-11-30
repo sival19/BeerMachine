@@ -4,16 +4,10 @@
  * and open the template in the editor.
  */
 
-/**
- *
- * @author athil
- */
 
 import java.net.URI;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
 import com.pusher.rest.Pusher;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
@@ -21,7 +15,6 @@ import org.eclipse.milo.opcua.sdk.client.api.subscriptions.UaMonitoredItem;
 import org.eclipse.milo.opcua.sdk.client.api.subscriptions.UaSubscription;
 import org.eclipse.milo.opcua.stack.client.DiscoveryClient;
 import org.eclipse.milo.opcua.stack.core.AttributeId;
-import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
 import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
 import org.eclipse.milo.opcua.stack.core.types.builtin.Variant;
 import org.eclipse.milo.opcua.stack.core.types.enumerated.MonitoringMode;
@@ -36,13 +29,11 @@ import static com.google.common.collect.Lists.newArrayList;
 
 
 public class Subscribe {
-    private String endPoint = "opc.tcp://127.0.0.1";
-//    private String endPoint = "opc.tcp://192.168.0.122:4840";
-    public static Subscribe subscribe = new Subscribe();
+//    private final String endPoint = "opc.tcp://127.0.0.1";
+    private String endPoint = "opc.tcp://192.168.0.122:4840";
     private URI uri;
-    private String host = "127.0.0.1";
-//    private String host = "192.168.0.122";
-    private int port = 4840;
+//    private String host = "127.0.0.1";
+    private String host = "192.168.0.122";
     private Variant value;
 
 
@@ -120,10 +111,6 @@ public class Subscribe {
 
         return value;
 
-    }
-
-    public Variant returnValue(){
-        return value;
     }
 
 

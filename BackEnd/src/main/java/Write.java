@@ -28,15 +28,15 @@ public class Write {
 
     public static void main(String[] args) {
         URI uri;
-        //String host = "192.168.0.122";
-        String host = "127.0.0.1";
+        String host = "192.168.0.122";
+//        String host = "127.0.0.1";
         int port = 4840;
         try
         {
             //opc.tcp://192.168.0.122:4840
             //opc.tcp://127.0.0.1
 
-            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://127.0.0.1").get();
+            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://192.168.0.122").get();
 
             OpcUaClientConfigBuilder cfg = new OpcUaClientConfigBuilder();
 
@@ -78,15 +78,15 @@ public class Write {
 
             //set productId to 1
             NodeId nodeId4 = NodeId.parse("ns=6;s=::Program:Cube.Command.Parameter[1].Value");
-            client.writeValue(nodeId4, DataValue.valueOnly(new Variant((float)0.0))).get();
+            client.writeValue(nodeId4, DataValue.valueOnly(new Variant((float)2.0))).get();
 
             //set amount to 10k
             NodeId nodeId5 = NodeId.parse("ns=6;s=::Program:Cube.Command.Parameter[2].Value");
-            client.writeValue(nodeId5, DataValue.valueOnly(new Variant((float)10000.0))).get();
+            client.writeValue(nodeId5, DataValue.valueOnly(new Variant((float)1000.0))).get();
 
             //set mach speed to 200
             NodeId nodeId6 = NodeId.parse("ns=6;s=::Program:Cube.Command.MachSpeed");
-            client.writeValue(nodeId6, DataValue.valueOnly(new Variant((float)360.0))).get();
+            client.writeValue(nodeId6, DataValue.valueOnly(new Variant((float)7.5))).get();
 
             //start the shit up
             TimeUnit.SECONDS.sleep(2);

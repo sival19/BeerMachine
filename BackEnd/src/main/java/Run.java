@@ -12,8 +12,8 @@ public class Run implements Runnable{
 
 
     public static void main(String[] args) {
-        IDataManager iDataManager;
-        iDataManager = databaseManager.getInstance();
+//        IDataManager iDataManager;
+//        iDataManager = databaseManager.getInstance();
         Subscribe subscribe = new Subscribe();
 
 
