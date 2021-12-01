@@ -3,13 +3,14 @@
     <title>
 Current Production
     </title>
+    <link rel="stylesheet" type="text/css" href="{{'/css/start.css'}}">
 </head>
 
 <body>
 <a href="{{route("home")}}">Back</a>
 
 <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
-<center>
+
 <h1>Start a Production</h1>
 
 <br>
@@ -44,7 +45,7 @@ Current Production
     </div>
 </form>
 
-</center>
+
 <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
 
 </body>

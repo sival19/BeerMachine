@@ -29,17 +29,6 @@ class startProdEvent implements ShouldBroadcast
         $this->speed = $speed;
     }
 
-    public function broadcastToEveryone()
-    {
-
-
-    }
-
-//    public function broadcastWith(){
-//        return ['1' => '2'];
-//    }
-
-
     /**
      * Get the channels the event should broadcast on.
      *
@@ -47,7 +36,6 @@ class startProdEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-
         return new Channel('my-channel');
     }
 }
