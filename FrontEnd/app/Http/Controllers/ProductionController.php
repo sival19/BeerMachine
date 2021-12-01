@@ -103,7 +103,10 @@ class ProductionController extends Controller
 
     public function beginProduction(Request $request){
 
-        event(new startProdEvent($request->input('machineSpeed')));
+        event(new startProdEvent(
+            $request->input('machineSpeed'),
+            $request->input('amount'),
+            $request->input('type')));
         return back();
     }
 

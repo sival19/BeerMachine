@@ -13,16 +13,20 @@ use Illuminate\Queue\SerializesModels;
 class startProdEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $message;
+    public $type;
+    public $speed;
+    public $amount;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($type, $speed, $amount)
     {
-        $this->message = $message;
+        $this->type = $type;
+        $this->amount = $amount;
+        $this->speed = $speed;
     }
 
     public function broadcastToEveryone()
