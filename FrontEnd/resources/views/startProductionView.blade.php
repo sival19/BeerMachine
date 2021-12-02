@@ -50,7 +50,8 @@
         </p>
 
 
-        <button type="submit">Create Production</button>
+        <button class="start" type="submit">Start Production</button>
+        <button class="reset" type="submit">Reset</button>
     </form>
 
 </div>
