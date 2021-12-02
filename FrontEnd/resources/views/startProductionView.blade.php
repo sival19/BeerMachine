@@ -13,10 +13,9 @@ Current Production
 
 <h1>Start a Production</h1>
 
-<br>
+<div class="createProductionForm">
 <form method="post" action="/beginProduction">
 @csrf
-    <div class="mb-3">
         <label for="productType" class="form-label">Select type of beer</label>
         <select type="text" name="type" class="form-control name" id="productType" required>
             <option value="0.0">Pilsner</option>
@@ -26,7 +25,6 @@ Current Production
             <option value="4.0">Ale</option>
             <option value="5.0">Alcohol Free</option>
         </select>
-    </div>
 
         <label for="productionAmount" class="form-label">Enter desired amount of beer to produce</label>
         <input type="number" name="amount" class="form-control name" id="productionAmount" placeholder="1000" required>
@@ -34,6 +32,8 @@ Current Production
         <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" placeholder="50" required>
     <button type="submit">Create Production</button>
 </form>
+
+</div>
 
 
 <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
