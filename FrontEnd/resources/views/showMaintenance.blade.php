@@ -1,9 +1,9 @@
 <html>
-<header>
+<head>
     <title>
         Show maintenance
     </title>
-</header>
+</head>
 
 
 <body>

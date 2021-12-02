@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\startProdEvent;
 use App\Models\Production;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class ProductionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -87,5 +88,35 @@ class ProductionController extends Controller
     public function show_productions()
     {
         return view('showProductions');
+    }
+
+    public function showCurrentProduction(){
+
+        return view('showCurrentProduction');
+
+    }
+
+    public function show_production()
+    {
+        return view('showProduction');
+    }
+
+    public function beginProduction(Request $request){
+
+        event(new startProdEvent(
+            $request->input('machineSpeed'),
+            $request->input('amount'),
+            $request->input('type')));
+        return back();
+    }
+
+    public function test(){
+        return view('test');
+    }
+
+    public function startProduction()
+    {
+
+        return view('startProductionView');
     }
 }

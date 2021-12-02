@@ -1,21 +1,19 @@
 <html>
-<header>
+<head>
     <title>Show production</title>
-</header>
+</head>
 
 <body>
 <h1>Show productions</h1>
 
-<form>
-    <a href="{{route("home")}}">Back</a>
 
     <button>
         <a href="javascript:history.back()">Go Back</a>
     </button>
 
-
-
-</form>
+    <br>
+    <h3> See a specific production:</h3>
+    <a href="{{route("show_production-link")}}">See a production</a>
 
 
 </body>
