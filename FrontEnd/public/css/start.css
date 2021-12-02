@@ -1,6 +1,9 @@
 form{
     font-size: 25px;
+}
 
+span {
+    display: block;
 }
 
 input[type=text], select {
@@ -13,7 +16,7 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
-input[type=submit] {
+button[type=submit] {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -30,14 +33,17 @@ input[type=submit]:hover {
 
 .createProductionForm {
     border-radius: 5px;
+    margin: auto;
     background-color: #f2f2f2;
     padding: 20px;
     max-width: 500px;
-    align-items: center;
-    text-align: center;
+    text-align: left;
+}
+select{
+    text-align-last:left;
+    padding-right: 29px;
+    max-width: 200px;
 }
 body{
-    align-content: center;
-    align-items: center;
     text-align: center;
 }
