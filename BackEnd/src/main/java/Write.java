@@ -86,7 +86,7 @@ public class Write {
 
             //set mach speed to 200
             NodeId nodeId6 = NodeId.parse("ns=6;s=::Program:Cube.Command.MachSpeed");
-            client.writeValue(nodeId6, DataValue.valueOnly(new Variant((float)37.5))).get();
+            client.writeValue(nodeId6, DataValue.valueOnly(new Variant((float)60))).get();
 
             //start the shit up
             TimeUnit.SECONDS.sleep(2);
