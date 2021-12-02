@@ -12,10 +12,6 @@ public class Run implements Runnable{
 
 
     public static void main(String[] args) {
-//        IDataManager iDataManager;
-//        iDataManager = databaseManager.getInstance();
-        Subscribe subscribe = new Subscribe();
-
 
         Thread t1 = new Thread(){
             public void run () {
@@ -57,12 +53,39 @@ public class Run implements Runnable{
                 }
         };
 
+        /*
+        Thread t7 = new Thread(() -> {
+            while (true){
+                try {
+                    Thread.sleep(1000);
+                    Read read = new Read();
+                    int count = 0;
+
+                    if(read.ReadSingleNode("ns=6;s=::Program:Cube.Status.StateCurrent") == 17 && count<1){
+                        read.ReadAndSave();
+                        count++;
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }); */
+
+//        Thread t7 = new Thread(){
+//            public void run () {
+//                Subscribe subscribe = new Subscribe();
+//                if (subscribe.getValues("ns=6;s=::Program:Cube.Status.StateCurrent", "state") == 17)
+//                subscribe.getValues("ns=6;s=::Program:Data.Value.Vibration", "state");
+//            }
+//        };
+
         t1.start();
         t2.start();
         t3.start();
         t4.start();
         t5.start();
         t6.start();
+        //t7.start();
 
     }
 
