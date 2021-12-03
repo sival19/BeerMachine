@@ -34,7 +34,7 @@
             <label for="productionAmount" class="form-label">Enter desired amount of beer to produce</label>
         </span>
             <span>
-                <input type="number" name="amount" class="form-control name" id="productionAmount" placeholder="1000"
+                <input type="number" name="amount" onkeypress="return event.charCode !== 45" class="form-control name" id="productionAmount" min="1" placeholder="1000"
                        required>
             </span>
         </p>
@@ -43,7 +43,7 @@
             <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed</label>
         </span>
             <span>
-        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" placeholder="50" required>
+        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="0" placeholder="50" required>
     </span>
         </p>
 
