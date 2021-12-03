@@ -36,6 +36,10 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+.h1-start_a_production {
+    margin-top: -10px;
+}
+
 .createProductionForm {
     border-radius: 5px;
     margin: auto;
