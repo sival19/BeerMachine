@@ -6,6 +6,8 @@
 </head>
 
 <body>
+
+<!--Navigation bar-->
 <nav>
     <ul>
         <li><a href="{{route("home")}}">Home</a></li>
@@ -13,9 +15,6 @@
         <li><a href="{{route("show_productions-link")}}">Show Productions</a></li>
     </ul>
 </nav>
-<button class="goBack" style="display: flex; margin-top: 10px">
-    <a href="javascript:history.back()">Go Back</a>
-</button>
 @yield('content')
 </body>
 </html>
