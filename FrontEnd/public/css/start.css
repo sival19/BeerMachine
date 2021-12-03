@@ -18,17 +18,13 @@ input[type=text], select {
 
 .submit1 {
     display: inline-block;
-    width: 40%;
-    color: black;
-    padding: 14px 20px;
-    margin: 6px 3px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 .submit2 {
     display: inline-block;
+}
+
+.all_four_buttons {
     width: 40%;
     color: black;
     padding: 14px 20px;
