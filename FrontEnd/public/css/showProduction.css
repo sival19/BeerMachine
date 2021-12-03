@@ -7,7 +7,6 @@
     max-width: 500px;
     text-align: left;
 }
-
 .table {
     margin-left: auto;
     margin-right: auto;
@@ -16,6 +15,7 @@
     table-layout:fixed;
 }
 
-.td {
 
+Table tr td {
+    Margin: 20 20 20 0;
 }
