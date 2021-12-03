@@ -11,30 +11,29 @@ public class Runner {
 
     public static void main(String[] args) {
         IOPCUAManager iopcuaManager = OpcUAManager.getInstance();
-        //set command and send command change
-        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CntrlCmd",1);
-        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CmdChangeRequest", true);
-
-        //set Batch
-        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[0].Value", (float)1.0);
-        //set Product ID
-        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[1].Value",(float)2.0);
-        //set product Amount
-        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[2].Value", (float)1000.0);
-        //set Speed
-        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.MachSpeed", (float)97.5);
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        //send start command and commit
-        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CntrlCmd", 2);
-        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CmdChangeRequest", true);
-
+//        //set command and send command change
+//        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CntrlCmd",1);
+//        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CmdChangeRequest", true);
+//
+//        //set Batch
+//        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[0].Value", (float)1.0);
+//        //set Product ID
+//        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[1].Value",(float)2.0);
+//        //set product Amount
+//        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[2].Value", (float)100.0);
+//        //set Speed
+//        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.MachSpeed", (float)97.5);
+//        try {
+//            TimeUnit.SECONDS.sleep(2);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        //send start command and commit
+//        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CntrlCmd", 2);
+//        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CmdChangeRequest", true);
+//
 
         //read a node
-        iopcuaManager.readNode("ns=6;s=::Program:product.produced");
 
         //subscribe to a node
         Thread t1 = new Thread(){
@@ -68,6 +67,11 @@ public class Runner {
                 iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.Vibration", "sensor.Vibration");
             }
         };
+        Thread t7 = new Thread(){
+            public void run () {
+                iopcuaManager.subscribe("ns=6;s=::Program:Cube.Status.StateCurrent", "state");
+            }
+        };
 
         t1.start();
         t2.start();
@@ -75,5 +79,8 @@ public class Runner {
         t4.start();
         t5.start();
         t6.start();
+        t7.start();
+
+
     }
 }
