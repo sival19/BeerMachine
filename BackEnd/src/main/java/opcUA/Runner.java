@@ -34,7 +34,7 @@ public class Runner {
 
 
         //read a node
-        iopcuaManager.readNode("ns=6;s=::Program:product.produced").toString();
+        iopcuaManager.readNode("ns=6;s=::Program:product.produced");
 
         //subscribe to a node
         Thread t1 = new Thread(){
