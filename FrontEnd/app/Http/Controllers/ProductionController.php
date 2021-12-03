@@ -103,9 +103,9 @@ class ProductionController extends Controller
 
     public function beginProduction(Request $request){
         $validated = $request->validate([
-            'machineSpeed' => ['required|numeric|min:1|Integer'],
-            'amount' => ['required|numeric|min:1|Integer'],
-            'type' => ['required']
+            'machineSpeed' => 'required|numeric|min:1|Integer',
+            'amount' => 'required|numeric|min:1|Integer',
+            'type' => 'required'
         ]);
 
         event(new startProdEvent(
