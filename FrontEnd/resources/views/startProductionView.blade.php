@@ -4,6 +4,8 @@
         Current Production
     </title>
     <link rel="stylesheet" type="text/css" href="{{'/css/start.css'}}">
+    <link rel="stylesheet" type="text/css" href="{{'/css/showProduction.css'}}">
+
 </head>
 
 <body>
@@ -11,9 +13,8 @@
 
 <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
-<h1>Start a Production</h1>
-
 <div class="createProductionForm">
+    <h1>Start a Production</h1>
     <form method="post" action="/beginProduction">
         @csrf
         <p>
@@ -52,12 +53,40 @@
 
         <button class="start" type="submit">Start Production</button>
         <button class="reset" type="submit">Reset</button>
+
     </form>
 
 </div>
 
+<div class="showProduction">
+    <p><strong>Data from production</strong></p>
+    <table border="1" class="table">
+        <tr>
+        <tr>
+            <td>Product Count</td>
+            <td>Good Products</td>
+            <td>Defect Products</td>
+        </tr>
+        <td id="production.produced"></td>
+        <td id="production.Good"></td>
+        <td id="production.Defective"></td>
+        </tr>
+
+        <td>Temperature</td>
+        <td>Humidity</td>
+        <td>Vibration</td>
+        <tr>
+            <td id="sensor.Temperature"></td>
+            <td id="sensor.Humidity"></td>
+            <td id="sensor.Vibration"></td>
+        </tr>
+    </table>
+    <br>
+</div>
 
 <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
+<script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+
 
 </body>
 </html>
