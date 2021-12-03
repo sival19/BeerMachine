@@ -46,9 +46,10 @@
     </span>
         </p>
 
-
-        <button class="start" type="submit">Start Production</button>
-        <button class="reset" type="submit">Reset</button>
+        <button class="start submit1" type="submit">Start Production</button>
+        <button class="clear submit1" type="submit">Clear</button>
+        <button class="reset submit2" type="submit">Reset</button>
+        <button class="abort submit2" type="submit">Abort</button>
 
     </form>
 
