@@ -48,17 +48,23 @@
     </span>
             </p>
 
-            <div class="all_four_buttons">
-                <div class="submit1">
-                    <button type="submit">Start Production</button>
-                    <button type="submit">Clear</button>
-                </div>
+{{--            Work in progress--}}
+{{--            <div class="all_four_buttons">--}}
+{{--                <div class="submit1">--}}
+{{--                    <button type="submit">Start Production</button>--}}
+{{--                    <button type="submit">Clear</button>--}}
+{{--                </div>--}}
 
-                <div class="submit2">
-                    <button type="submit">Reset</button>
-                    <button type="submit">Abort</button>
-                </div>
-            </div>
+{{--                <div class="submit2">--}}
+{{--                    <button type="submit">Reset</button>--}}
+{{--                    <button type="submit">Abort</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+            <button class="start_production submit1 all_four_buttons">Start production</button>
+            <button class="clear submit1 all_four_buttons">Clear</button>
+            <button class="reset submit2 all_four_buttons">Reset</button>
+            <button class="abort submit2 all_four_buttons">Abort</button>
 
         </form>
 

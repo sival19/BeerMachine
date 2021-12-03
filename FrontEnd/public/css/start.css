@@ -34,7 +34,7 @@ input[type=text], select {
     cursor: pointer;
 }
 
-.start {
+.start_production {
     background-color: #4CAF50;
 }
 
