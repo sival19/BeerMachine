@@ -41,6 +41,23 @@ public class OpcUAManager implements IOPCUAManager{
         return opcUAManager;
     }
 
+
+    @Override
+    public Variant readNode(String nodeID){
+        OpcUaClient client = opcUAconnector.connectOPC();
+        try {
+            //NodeId's for each Production attribute
+            NodeId readNode = NodeId.parse(nodeID);
+            //DataValues for each Production attribute
+            DataValue readNodeValue = client.readValue(0, TimestampsToReturn.Both, readNode).get();
+            //Variant values for each Production attribute
+            value = readNodeValue.getValue();
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
+        return value;
+    }
+
     @Override
     public Variant subscribe(String nodeId, String event){
         OpcUaClient client = opcUAconnector.connectOPC();

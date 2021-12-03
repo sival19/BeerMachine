@@ -8,4 +8,5 @@ public interface IOPCUAManager {
     void writeValue(String nodeId, float value);
     void writeValue(String nodeId, boolean value);
     Variant subscribe(String nodeId, String event);
+    Variant readNode(String nodeID);
 }
