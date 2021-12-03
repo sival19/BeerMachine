@@ -26,7 +26,9 @@ import org.eclipse.milo.opcua.stack.core.types.structured.MonitoringParameters;
 import org.eclipse.milo.opcua.stack.core.types.structured.ReadValueId;
 
 import java.net.URI;
+import java.sql.Timestamp;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
@@ -76,8 +78,13 @@ public class OpcUAManager implements IOPCUAManager{
         int machineIdStart = (int) iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent").getValue();
         UShort succeededCountUShort = (UShort) iopcuaManager.readNode("ns=6;s=::Program:product.good").getValue();
 
+        // Casting values from machine to right database value
         int beerType = (int) beerTypeFloat + 1;
         int succeededCount = succeededCountUShort.intValue();
+
+        //Creating timestamp
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
 
 
         int machineId = 0;
@@ -94,6 +101,7 @@ public class OpcUAManager implements IOPCUAManager{
         production.setBeerType(beerType);
         production.setMachineId(machineId);
         production.setSucceededCount(succeededCount);
+        production.setTimestamp(timestamp);
         iDataManager.saveProduction(production);
 
 

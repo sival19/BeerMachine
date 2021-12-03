@@ -31,7 +31,7 @@ public class Runner {
 //        //send start command and commit
 //        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CntrlCmd", 2);
 //        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CmdChangeRequest", true);
-//
+
 
         //read a node
 
@@ -81,6 +81,6 @@ public class Runner {
         t6.start();
         t7.start();
 
-
+        iopcuaManager.saveProduction();
     }
 }
