@@ -2,6 +2,7 @@ package opcUA;
 
 
 import com.pusher.rest.Pusher;
+import database.IDataManager;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
 import org.eclipse.milo.opcua.sdk.client.api.subscriptions.UaMonitoredItem;
@@ -56,6 +57,23 @@ public class OpcUAManager implements IOPCUAManager{
             ex.printStackTrace();
         }
         return value;
+    }
+
+    public void readWrite(){
+        IOPCUAManager iopcuaManager = OpcUAManager.getInstance();
+
+        int failed = (int)iopcuaManager.readNode("ns=6;s=::Program:Cube.Admin.ProdDefectiveCount").getValue();
+        int processed = (int)iopcuaManager.readNode("ns=6;s=::Program:Cube.Admin.ProdProcessedCount").getValue();
+        int currentProd = (int)iopcuaManager.readNode("ns=6;s=::Program:Cube.Admin.Parameter[0].Value").getValue();
+        int stateCurrent = (int) iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent").getValue();
+        int goodProd = (int)iopcuaManager.readNode("ns=6;s=::Program:product.good").getValue();
+
+        if(stateCurrent == 17){
+            //write to DB
+        }
+
+
+
     }
 
     @Override
