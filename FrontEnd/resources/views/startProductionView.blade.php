@@ -1,17 +1,14 @@
-<html>
-<head>
-    <title>
-        Current Production
-    </title>
-    <link rel="stylesheet" type="text/css" href="{{'/css/start.css'}}">
-    <link rel="stylesheet" type="text/css" href="{{'/css/showProduction.css'}}">
+@extends('master')
+@section('content')
+    <head>
+        <title>Current Production</title>
 
-</head>
+        <link rel="stylesheet" type="text/css" href="{{'/css/start.css'}}">
+        <link rel="stylesheet" type="text/css" href="{{'/css/showProduction.css'}}">
 
-<body>
-<a href="{{route("home")}}">Back</a>
+        <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+    </head>
 
-<script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
 <div class="createProductionForm">
     <h1>Start a Production</h1>
@@ -87,6 +84,4 @@
 <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
 <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
-
-</body>
-</html>
+@endsection

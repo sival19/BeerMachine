@@ -1,15 +1,8 @@
-<html>
-<head>
-    <title>
-        Show production
-    </title>
-</head>
+@extends('master')
+@section('content')
+<title>Show production</title>
 
-
-
-<body>
 <h1>Show production</h1>
-
 
 <form>
     <button>
@@ -17,7 +10,4 @@
     </button>
 </form>
 
-
-
-</body>
-</html>
+@endsection
