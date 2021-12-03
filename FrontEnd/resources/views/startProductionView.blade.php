@@ -10,12 +10,12 @@
     </head>
 
     <div class="createProductionForm">
-        <h1 class="h1-start_a_production">Start a Production</h1>
+        <h1 class="h1-start_a_production">Start a production</h1>
         <form method="post" action="/beginProduction">
             @csrf
             <p>
         <span>
-            <label for="productType" class="form-label">Select type of beer</label>
+            <label for="productType" class="form-label">Select type of beer:</label>
         </span>
                 <span>
                 <select type="text" name="type" class="form-control name" id="productType" required>
@@ -30,7 +30,7 @@
             </p>
             <p>
         <span>
-            <label for="productionAmount" class="form-label">Enter desired amount of beer to produce</label>
+            <label for="productionAmount" class="form-label">Enter desired amount of beer to produce:</label>
         </span>
                 <span>
                 <input type="number" name="amount" onkeypress="return event.charCode !== 45" class="form-control name"
@@ -40,7 +40,7 @@
             </p>
             <p>
         <span>
-            <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed</label>
+            <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed:</label>
         </span>
                 <span>
         <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="0" placeholder="50"
