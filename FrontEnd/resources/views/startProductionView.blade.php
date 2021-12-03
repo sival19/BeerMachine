@@ -9,7 +9,6 @@
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
     </head>
 
-
 <div class="createProductionForm">
     <h1 class="h1-start_a_production">Start a Production</h1>
     <form method="post" action="/beginProduction">
