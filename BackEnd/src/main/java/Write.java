@@ -83,7 +83,7 @@ public class Write {
 
             //set amount to 10k
             NodeId nodeId5 = NodeId.parse("ns=6;s=::Program:Cube.Command.Parameter[2].Value");
-            client.writeValue(nodeId5, DataValue.valueOnly(new Variant((float)50))).get();
+            client.writeValue(nodeId5, DataValue.valueOnly(new Variant((float)50000))).get();
 
             //set mach speed to 200
             NodeId nodeId6 = NodeId.parse("ns=6;s=::Program:Cube.Command.MachSpeed");
