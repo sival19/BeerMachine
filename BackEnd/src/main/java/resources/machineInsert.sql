@@ -1,0 +1,18 @@
+insert into machine (status)
+values ('Deactivated'),
+       ('Clearing'),
+       ('Stopped'),
+       ('Starting'),
+       ('Idle'),
+       ('Suspended'),
+       ('Execute'),
+       ('Stopping'),
+       ('Aborting'),
+       ('Aborted'),
+       ('Holding'),
+       ('Held'),
+       ('Resetting'),
+       ('Completing'),
+       ('Complete'),
+       ('Deactivating'),
+       ('Activating');
