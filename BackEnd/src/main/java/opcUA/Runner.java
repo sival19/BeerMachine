@@ -3,6 +3,8 @@ package opcUA;
 import database.IDataManager;
 import database.databaseManager;
 import org.eclipse.milo.opcua.stack.core.types.builtin.Variant;
+import pusher.IPusherManager;
+import pusher.PusherManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -10,6 +12,12 @@ public class Runner {
 
 
     public static void main(String[] args) {
+        //Listen to data from pusher
+        IPusherManager iPusherManager = PusherManager.getInstance();
+        //The data from pusher
+        iPusherManager.SubscribePusher("App\\Events\\startProdEvent");
+
+
         IOPCUAManager iopcuaManager = OpcUAManager.getInstance();
         //set command and send command change
         iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CntrlCmd",1);
