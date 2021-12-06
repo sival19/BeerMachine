@@ -24,6 +24,7 @@ import org.eclipse.milo.opcua.stack.core.types.structured.ReadValueId;
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static com.google.common.collect.Lists.newArrayList;
 
@@ -57,6 +58,33 @@ public class OpcUAManager implements IOPCUAManager{
             ex.printStackTrace();
         }
         return value;
+    }
+
+    @Override
+    public void initiateCommand(int command){
+        IOPCUAManager iopcuaManager = OpcUAManager.getInstance();
+        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CntrlCmd", command);
+        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CmdChangeRequest", true);
+    }
+
+    @Override
+    public void startSequence(float batch, float productId, float amount, float speed){
+        IOPCUAManager iopcuaManager = OpcUAManager.getInstance();
+        //set Batch
+        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[0].Value", (float)batch);
+        //set Product ID
+        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[1].Value",(float)productId);
+        //set product Amount
+        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.Parameter[2].Value", (float)amount);
+        //set Speed
+        iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.MachSpeed", (float)speed);
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //send start command and commit
+        iopcuaManager.initiateCommand(2);
     }
 
     public void readWrite(){

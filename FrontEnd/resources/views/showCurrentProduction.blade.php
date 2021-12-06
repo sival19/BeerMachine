@@ -1,12 +1,7 @@
-<html>
-<head>
-    <title>
-Current Production
-    </title>
-</head>
+@extends('master')
 
-<body>
-<a href="{{route("home")}}">Back</a>
+@section('content')
+<title>Current Production</title>
 
 <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 <h1>Current Production</h1>
@@ -36,6 +31,4 @@ Current Production
 
 
 <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
-
-</body>
-</html>
+@endsection
