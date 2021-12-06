@@ -110,9 +110,14 @@ class ProductionController extends Controller
         ]);
 
         event(new startProdEvent(
+
+            $request->input('type'),
             $request->input('machineSpeed'),
             $request->input('amount'),
-            $request->input('type')));
+
+
+
+            ));
         return back();
     }
 
