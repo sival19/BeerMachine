@@ -10,4 +10,6 @@ public interface IOPCUAManager {
     Variant subscribe(String nodeId, String event);
     void saveProduction();
     Variant readNode(String nodeID);
+    void initiateCommand(int command);
+    void startSequence(float batch, float productId, float amount, float speed);
 }

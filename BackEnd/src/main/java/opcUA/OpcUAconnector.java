@@ -16,9 +16,9 @@ public class OpcUAconnector {
     private static OpcUAconnector instance;
 //    private String host = "192.168.0.122";
 
-    public OpcUaClient getClient(){
-        return client;
-    }
+//    public OpcUaClient getClient(){
+//        return client;
+//    }
 
     public static OpcUAconnector getInstance(){
         if (instance == null) {
