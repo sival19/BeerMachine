@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class resetButton
+class resetButton implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -19,10 +19,10 @@ class resetButton
      *
      * @return void
      */
-    public $value;
-    public function __construct($value)
+    public $resetValue;
+    public function __construct($resetValue)
     {
-        $this->value=$value;
+        $this->resetValue=$resetValue;
     }
 
     /**
@@ -32,6 +32,6 @@ class resetButton
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('resetButton');
+        return new Channel('my-channel');
     }
 }

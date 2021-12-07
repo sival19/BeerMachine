@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class abortButton
+class abortButton implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,10 +20,10 @@ class abortButton
      *
      * @return void
      */
-    public $value;
-    public function __construct($value)
+    public $abortValue;
+    public function __construct($abortValue)
     {
-        $this->value=$value;
+        $this->abortValue=$abortValue;
     }
 
     /**
@@ -33,6 +33,6 @@ class abortButton
      */
     public function broadcastOn()
     {
-        return new Channel('abortButton');
+        return new Channel('my-channel');
     }
 }

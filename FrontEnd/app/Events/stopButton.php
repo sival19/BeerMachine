@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class stopButton
+class stopButton implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -19,10 +19,10 @@ class stopButton
      *
      * @return void
      */
-    public $value;
-    public function __construct($value)
+    public $stopValue;
+    public function __construct($stopValue)
     {
-        $this->value=$value;
+        $this->stopValue=$stopValue;
     }
 
     /**
@@ -32,6 +32,6 @@ class stopButton
      */
     public function broadcastOn()
     {
-        return new Channel('stopButton');
+        return new Channel('my-channel');
     }
 }

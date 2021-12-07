@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class clearButton
+class clearButton implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -19,10 +19,10 @@ class clearButton
      *
      * @return void
      */
-    public $value;
-    public function __construct($value)
+    public $clearValue;
+    public function __construct($clearValue)
     {
-        $this->value=$value;
+        $this->clearValue=$clearValue;
     }
 
     /**
@@ -32,6 +32,6 @@ class clearButton
      */
     public function broadcastOn()
     {
-        return new Channel('clearButton');
+        return new Channel('my-channel');
     }
 }

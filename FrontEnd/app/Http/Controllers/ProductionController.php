@@ -122,35 +122,28 @@ class ProductionController extends Controller
         ));
         return back();
     }
+
     public function abortButton(Request $request)
     {
-        event(new abortButton(
-            value: $request->input('value'),
-        ));
+        event(new abortButton($request->input('abortValue')));
         return back();
     }
 
     public function clearButton(Request $request)
     {
-        event(new clearButton(
-            value: $request->input('value'),
-        ));
+        event(new clearButton($request->input("clearValue")));
         return back();
     }
 
     public function resetButton(Request $request)
     {
-        event(new resetButton(
-            value: $request->input('value'),
-        ));
+        event(new resetButton($request->input('resetValue')));
         return back();
     }
 
     public function stopButton(Request $request)
     {
-        event(new stopButton(
-            value: $request->input('value'),
-        ));
+        event(new stopButton($request->input('stopValue')));
         return back();
     }
 

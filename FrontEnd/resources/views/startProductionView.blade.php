@@ -62,9 +62,9 @@
             {{--            </div>--}}
 
             <button class="start_production submit1 all_four_buttons">Start production</button>
-            <button class="clear submit1 all_four_buttons">Clear</button>
-            <button class="reset submit2 all_four_buttons">Reset</button>
-            <button class="abort submit2 all_four_buttons">Abort</button>
+            <button class="clear submit1 all_four_buttons" formaction="/clearButton" value="5" name="clearValue">Clear</button>
+            <button class="reset submit2 all_four_buttons" formaction="/resetButton" value="1" name="resetValue">Reset</button>
+            <button class="abort submit2 all_four_buttons" formaction="/abortButton" value="4" name="abortValue">Abort</button>
 
         </form>
 

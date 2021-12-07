@@ -26,7 +26,7 @@ public class Runner {
 //        iopcuaManager.readNode("ns=6;s=::Program:product.produced");
 
         //subscribe to a node
-//        Thread t1 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:product.produced", "production.produced"));
+        Thread t1 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:product.produced", "production.produced"));
 //        Thread t2 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Admin.ProdDefectiveCount", "production.Defective"));
 //        Thread t3 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:product.good", "production.Good"));
 //        Thread t4 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.RelHumidity", "sensor.Humidity"));
