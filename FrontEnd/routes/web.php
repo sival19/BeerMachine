@@ -1,6 +1,10 @@
 <?php
 
+use App\Events\abortButton;
+use App\Events\clearButton;
+use App\Events\resetButton;
 use App\Events\startProdEvent;
+use App\Events\stopButton;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductionController;
 use Illuminate\Support\Facades\Route;
@@ -29,9 +33,9 @@ Route::get('/show_Start_Production', [ProductionController::class, 'startProduct
 Route::get('/test', [ProductionController::class, 'test'])->name('test');
 Route::post('/beginProduction', [ProductionController::class, 'beginProduction'])->name('testSend');
 
-Route::get('/startProduction', function ()
-{
-  broadcast(new startProdEvent());
-}
-);
+Route::get('/startProduction', function (){broadcast(new startProdEvent());})->name('startProduction');
+Route::get('/abortButton', function (){broadcast(new abortButton());})->name('abortButton');
+Route::get('/clearButton', function (){broadcast(new clearButton());})->name('clearButton');
+Route::get('/resetButton', function (){broadcast(new resetButton());})->name('resetButton');
+Route::get('/stopButton', function (){broadcast(new stopButton());})->name('stopButton');
 
