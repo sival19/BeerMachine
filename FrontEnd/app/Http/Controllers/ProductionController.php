@@ -111,9 +111,9 @@ class ProductionController extends Controller
 
         event(new startProdEvent(
 
-            $request->input('type'),
-            $request->input('machineSpeed'),
-            $request->input('amount'),
+            type: $request->input('type'),
+            speed: $request->input('machineSpeed'),
+            amount: $request->input('amount'),
 
 
 

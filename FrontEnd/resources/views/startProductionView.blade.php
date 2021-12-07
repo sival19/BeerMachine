@@ -48,18 +48,18 @@
     </span>
             </p>
 
-{{--            Work in progress--}}
-{{--            <div class="all_four_buttons">--}}
-{{--                <div class="submit1">--}}
-{{--                    <button type="submit">Start Production</button>--}}
-{{--                    <button type="submit">Clear</button>--}}
-{{--                </div>--}}
+            {{--            Work in progress--}}
+            {{--            <div class="all_four_buttons">--}}
+            {{--                <div class="submit1">--}}
+            {{--                    <button type="submit">Start Production</button>--}}
+            {{--                    <button type="submit">Clear</button>--}}
+            {{--                </div>--}}
 
-{{--                <div class="submit2">--}}
-{{--                    <button type="submit">Reset</button>--}}
-{{--                    <button type="submit">Abort</button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--                <div class="submit2">--}}
+            {{--                    <button type="submit">Reset</button>--}}
+            {{--                    <button type="submit">Abort</button>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
 
             <button class="start_production submit1 all_four_buttons">Start production</button>
             <button class="clear submit1 all_four_buttons">Clear</button>
