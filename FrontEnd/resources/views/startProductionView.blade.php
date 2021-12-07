@@ -70,6 +70,7 @@
 
     </div>
 
+
     <div class="showProduction">
         <p><strong>Data from production</strong></p>
         <table border="1" class="table">
@@ -94,6 +95,18 @@
             </tr>
         </table>
         <br>
+    </div>
+    <table border="1" class="table">
+        <tr>
+        <tr>
+            <td>Machine State</td>
+
+        </tr>
+        <td id="state.current"></td>
+        </tr>
+    </table>
+    <div>
+
     </div>
 
     <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>

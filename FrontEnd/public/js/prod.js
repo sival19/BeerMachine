@@ -7,3 +7,4 @@ channel.bind('production.Good', function(data) {document.getElementById('product
 channel.bind('sensor.Humidity', function(data) {document.getElementById('sensor.Humidity').innerHTML = data.message.value;});
 channel.bind('sensor.Temperature', function(data) {document.getElementById('sensor.Temperature').innerHTML = data.message.value;});
 channel.bind('sensor.Vibration', function(data) {document.getElementById('sensor.Vibration').innerHTML = data.message.value;});
+channel.bind('state.current', function(data) {document.getElementById('state.current').innerHTML = data.message.value;});
