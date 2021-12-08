@@ -1,8 +1,10 @@
 package opcUA;
 
 
+import Objects.Production;
 import com.pusher.rest.Pusher;
 import database.IDataManager;
+import database.databaseManager;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
 import org.eclipse.milo.opcua.sdk.client.api.subscriptions.UaMonitoredItem;
@@ -13,6 +15,7 @@ import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
 import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
 import org.eclipse.milo.opcua.stack.core.types.builtin.Variant;
 import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.UInteger;
+import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.UShort;
 import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.Unsigned;
 import org.eclipse.milo.opcua.stack.core.types.enumerated.MonitoringMode;
 import org.eclipse.milo.opcua.stack.core.types.enumerated.TimestampsToReturn;
@@ -22,7 +25,9 @@ import org.eclipse.milo.opcua.stack.core.types.structured.MonitoringParameters;
 import org.eclipse.milo.opcua.stack.core.types.structured.ReadValueId;
 
 import java.net.URI;
+import java.sql.Timestamp;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -33,6 +38,8 @@ public class OpcUAManager implements IOPCUAManager{
     private OpcUAconnector opcUAconnector;
     private static OpcUAManager opcUAManager;
     private Variant value;
+    private IOPCUAManager iopcuaManager;
+    private IDataManager iDataManager;
 
     private OpcUAManager(){this.opcUAconnector = opcUAconnector.getInstance(); }
 
@@ -87,21 +94,42 @@ public class OpcUAManager implements IOPCUAManager{
         iopcuaManager.initiateCommand(2);
     }
 
-    public void readWrite(){
-        IOPCUAManager iopcuaManager = OpcUAManager.getInstance();
+    @Override
+    public void saveProduction(){
+        iopcuaManager = OpcUAManager.getInstance();
+        iDataManager = databaseManager.getInstance();
 
         int failed = (int)iopcuaManager.readNode("ns=6;s=::Program:Cube.Admin.ProdDefectiveCount").getValue();
-        int processed = (int)iopcuaManager.readNode("ns=6;s=::Program:Cube.Admin.ProdProcessedCount").getValue();
-        int currentProd = (int)iopcuaManager.readNode("ns=6;s=::Program:Cube.Admin.Parameter[0].Value").getValue();
-        int stateCurrent = (int) iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent").getValue();
-        int goodProd = (int)iopcuaManager.readNode("ns=6;s=::Program:product.good").getValue();
+        int productionSize = (int)iopcuaManager.readNode("ns=6;s=::Program:Cube.Admin.ProdProcessedCount").getValue();
+        float beerTypeFloat = (Float) iopcuaManager.readNode("ns=6;s=::Program:Cube.Admin.Parameter[0].Value").getValue();
+        int machineIdStart = (int) iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent").getValue();
+        UShort succeededCountUShort = (UShort) iopcuaManager.readNode("ns=6;s=::Program:product.good").getValue();
 
-        if(stateCurrent == 17){
-            //write to DB
+        // Casting values from machine to right database value
+        int beerType = (int) beerTypeFloat + 1;
+        int succeededCount = succeededCountUShort.intValue();
+
+        //Creating timestamp
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
+
+
+        int machineId = 0;
+
+        if (machineIdStart <= 11){
+            machineId = machineIdStart + 1;
+        } else if(machineIdStart >= 15){
+            machineId = machineIdStart - 2;
         }
 
-
-
+        Production production = new Production();
+        production.setFailedCount(failed);
+        production.setProductionSize(productionSize);
+        production.setBeerType(beerType);
+        production.setMachineId(machineId);
+        production.setSucceededCount(succeededCount);
+        production.setTimestamp(timestamp);
+        iDataManager.saveProduction(production);
     }
 
     @Override
@@ -142,6 +170,12 @@ public class OpcUAManager implements IOPCUAManager{
                 pusher.setEncrypted(true);
                 pusher.trigger("my-channel", event, Collections.singletonMap("message", v.getValue()));
                 System.out.println(v.getValue());
+
+                if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
+                    opcUAManager.saveProduction();
+                }
+
+
             });
             Thread.sleep(5000000);
         }
