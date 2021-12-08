@@ -34,15 +34,6 @@ public class PusherManager implements IPusherManager {
 // Reconnect, with all channel subscriptions and event bindings automatically recreated
         pusher.connect();
 
-        //                JsonParser parser = new JsonParser();
-//                JsonObject json = (JsonObject) parser.parse(event.getData());
-//                System.out.println(json);
-//                float type = json.get("type").getAsFloat();
-//                float speed = json.get("speed").getAsFloat();
-//                float amount = json.get("amount").getAsFloat();
-//                //start production on event
-//                IOPCUAManager iopcuaManager = OpcUAManager.getInstance();
-//                iopcuaManager.startSequence(1,type,amount,speed);
     }
 
 
