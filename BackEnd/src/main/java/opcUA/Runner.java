@@ -16,7 +16,20 @@ public class Runner {
         //The data from pusher
         iPusherManager.SubscribePusher("App\\Events\\startProdEvent", pusherEvent -> {
             System.out.println(pusherEvent.getData());
-        });
+        }, "my-channel");
+        iPusherManager.SubscribePusher("App\\Events\\stopButton", pusherEvent -> {
+            System.out.println(pusherEvent.getData());
+        }, "stopChannel");
+        iPusherManager.SubscribePusher("App\\Events\\clearButton", pusherEvent -> {
+            System.out.println(pusherEvent.getData());
+        }, "clearChannel");
+        iPusherManager.SubscribePusher("App\\Events\\abortButton", pusherEvent -> {
+            System.out.println(pusherEvent.getData());
+        }, "abortChannel");
+        iPusherManager.SubscribePusher("App\\Events\\resetButton", pusherEvent -> {
+            System.out.println(pusherEvent.getData());
+        }, "resetChannel");
+
 
         //
         iopcuaManager.initiateCommand(1);

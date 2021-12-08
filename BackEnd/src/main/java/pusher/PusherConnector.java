@@ -26,8 +26,8 @@ public class PusherConnector {
         pusher.connect(new ConnectionEventListener() {
             @Override
             public void onConnectionStateChange(ConnectionStateChange change) {
-                System.out.println("State changed to " + change.getCurrentState() +
-                        " from " + change.getPreviousState());
+//                System.out.println("State changed to " + change.getCurrentState() +
+//                        " from " + change.getPreviousState());
             }
 
             @Override

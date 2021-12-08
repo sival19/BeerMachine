@@ -32,6 +32,6 @@ class stopButton implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('my-channel');
+        return new Channel('stopChannel');
     }
 }

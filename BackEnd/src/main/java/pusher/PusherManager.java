@@ -3,7 +3,6 @@ package pusher;
 
 import com.pusher.client.Pusher;
 import com.pusher.client.channel.Channel;
-import com.pusher.client.channel.PusherEvent;
 import com.pusher.client.channel.SubscriptionEventListener;
 public class PusherManager implements IPusherManager {
 
@@ -22,9 +21,9 @@ public class PusherManager implements IPusherManager {
     }
     //"App\\Events\\startProdEvent"
     @Override
-    public void SubscribePusher(String eventName, SubscriptionEventListener eventListener) {
+    public void SubscribePusher(String eventName, SubscriptionEventListener eventListener, String theChannel) {
         Pusher pusher = pusherConnector.Connect();
-        Channel channel = pusher.subscribe("my-channel");
+        Channel channel = pusher.subscribe(theChannel);
 
 // Bind to listen for events called "my-event" sent to "my-channel"
         channel.bind(eventName, eventListener);
