@@ -3,6 +3,14 @@
 /*    background-color: #4CAF50;*/
 /*    position: relative;*/
 /*}*/
+body{
+    background-color: grey;
+}
+
+.label_progressbar
+{
+    color: #7cff00;
+}
 
 .progressBars
 {
@@ -14,9 +22,9 @@
     width: 100%;
     max-width: 500px;
     height: 20px;
-    border: 3px solid black;
-    border-radius: 10px;
-    text-align: right;
+    /*border: 3px solid black;*/
+    /*border-radius: 10px;*/
+    text-align: left;
 }
 
 .progressBars .barlyBar {
@@ -52,6 +60,15 @@
 }
 
 .progressBars .yeastBar {
+    height: 100%;
+    width: 0;
+    background-color: red;
+    animation: fill-bar 3s infinite;
+    border-radius: 8px;
+}
+
+.progressBars .maintenanceBar
+{
     height: 100%;
     width: 0;
     background-color: red;
