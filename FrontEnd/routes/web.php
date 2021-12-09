@@ -2,6 +2,7 @@
 
 use App\Events\abortButton;
 use App\Events\clearButton;
+use App\Events\readState;
 use App\Events\resetButton;
 use App\Events\startProdEvent;
 use App\Events\stopButton;
@@ -47,7 +48,7 @@ Route::post('/abortButton', [ProductionController::class, 'abortButton']);
 Route::post('/resetButton', [ProductionController::class, 'resetButton']);
 Route::post('/stopButton', [ProductionController::class, 'stopButton']);
 
-Route::get('/startProduction', function (){broadcast(new \App\Events\readState());})->name('startProduction');
+Route::get('/startProduction', function (){broadcast(new readState());})->name('startProduction');
 //Route::get('/abortButton', function (){broadcast(new abortButton());})->name('abortButton');
 //Route::get('/clearButton', function (){broadcast(new clearButton());})->name('clearButton');
 //Route::get('/resetButton', function (){broadcast(new resetButton());})->name('resetButton');
