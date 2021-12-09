@@ -23,7 +23,7 @@ class CreateProductionsTable extends Migration
             $table->timestamps();
 
 
-            $table->foreign('machine_id')->references('id')->on('machine');
+            $table->foreign('machine_id')->references('id')->on('machines');
             $table->foreign('beer_type')->references('id')->on('beers');
         });
     }

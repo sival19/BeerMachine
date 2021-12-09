@@ -6,6 +6,7 @@ use App\Events\resetButton;
 use App\Events\startProdEvent;
 use App\Events\stopButton;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\MachineController;
 use App\Http\Controllers\ProductionController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,10 @@ Route::get('/show_productions', [ProductionController::class, 'show_productions'
 Route::get('/show_production', [ProductionController::class, 'show_production'])->name('show_production-link');
 Route::get('/show_Current_Production', [ProductionController::class, 'showCurrentProduction'])->name('production.current');
 Route::get('/show_Start_Production', [ProductionController::class, 'startProduction'])->name('production.start');
+
+
+Route::get('/ajax', [ProductionController::class, 'ajaxIndex'])->name('ajaxIndex');
+Route::get('/getState', [ProductionController::class, 'getState'])->name('machine.state');
 
 
 Route::get('/test', [ProductionController::class, 'test'])->name('test');
