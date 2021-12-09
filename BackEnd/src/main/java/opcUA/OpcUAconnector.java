@@ -12,13 +12,10 @@ import java.util.List;
 public class OpcUAconnector {
 
     private OpcUaClient client;
-    private String host = "127.0.0.1";
+//    private String host = "127.0.0.1";
     private static OpcUAconnector instance;
-//    private String host = "192.168.0.122";
+    private String host = "192.168.0.122";
 
-//    public OpcUaClient getClient(){
-//        return client;
-//    }
 
     public static OpcUAconnector getInstance(){
         if (instance == null) {
