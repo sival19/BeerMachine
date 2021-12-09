@@ -7,6 +7,7 @@ use App\Events\clearButton;
 use App\Events\resetButton;
 use App\Events\startProdEvent;
 use App\Events\stopButton;
+use App\Models\Machine;
 use App\Models\Production;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -93,6 +94,16 @@ class ProductionController extends Controller
     public function show_productions()
     {
         return view('showProductions');
+    }
+
+    public function getProductions()
+    {
+//        $productions = Production::all()->find();
+        $productions = Production::all('id', 'created_at');
+
+        if (\Illuminate\Support\Facades\Request::ajax()){
+            return response() ->json($productions);
+        }
     }
 
     public function showCurrentProduction()
