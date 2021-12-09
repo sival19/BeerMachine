@@ -15,7 +15,7 @@
 
 
     <div class="progressBars">
-        <h1 class="h1">Resources</h1>
+        <h1 class="h1">Inventory</h1>
         <div class="progressBar">
             <label class="label_progressbar" for="barleyBar">Barley:</label>
             <div class="barlyBar">100</div>
