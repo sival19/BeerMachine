@@ -30,16 +30,11 @@ Route::get('/show_production', [ProductionController::class, 'show_production'])
 Route::get('/show_Current_Production', [ProductionController::class, 'showCurrentProduction'])->name('production.current');
 Route::get('/show_Start_Production', [ProductionController::class, 'startProduction'])->name('production.start');
 
+
 Route::get('/test', [ProductionController::class, 'test'])->name('test');
 Route::post('/beginProduction', [ProductionController::class, 'beginProduction'])->name('testSend');
 Route::post('/clearButton', [ProductionController::class, 'clearButton']);
 Route::post('/abortButton', [ProductionController::class, 'abortButton']);
 Route::post('/resetButton', [ProductionController::class, 'resetButton']);
 Route::post('/stopButton', [ProductionController::class, 'stopButton']);
-
-//Route::get('/startProduction', function (){broadcast(new startProdEvent());})->name('startProduction');
-//Route::get('/abortButton', function (){broadcast(new abortButton());})->name('abortButton');
-//Route::get('/clearButton', function (){broadcast(new clearButton());})->name('clearButton');
-//Route::get('/resetButton', function (){broadcast(new resetButton());})->name('resetButton');
-//Route::get('/stopButton', function (){broadcast(new stopButton());})->name('stopButton');
 
