@@ -31,8 +31,14 @@ Route::get('/show_production', [ProductionController::class, 'show_production'])
 Route::get('/show_Current_Production', [ProductionController::class, 'showCurrentProduction'])->name('production.current');
 Route::get('/show_Start_Production', [ProductionController::class, 'startProduction'])->name('production.start');
 
+
+Route::get('/getProductions', [ProductionController::class, 'getProductions'])->name('getProductions');
+
+
 Route::get('/ajax', [ProductionController::class, 'ajaxIndex'])->name('ajaxIndex');
 Route::get('/getState', [ProductionController::class, 'getState'])->name('machine.state');
+
+
 
 Route::get('/test', [ProductionController::class, 'test'])->name('test');
 Route::post('/beginProduction', [ProductionController::class, 'beginProduction'])->name('testSend');

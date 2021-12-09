@@ -97,6 +97,16 @@ class ProductionController extends Controller
         return view('showProductions');
     }
 
+    public function getProductions()
+    {
+//        $productions = Production::all()->find();
+        $productions = Production::all('id', 'created_at');
+
+        if (\Illuminate\Support\Facades\Request::ajax()){
+            return response() ->json($productions);
+        }
+    }
+
     public function showCurrentProduction()
     {
 
