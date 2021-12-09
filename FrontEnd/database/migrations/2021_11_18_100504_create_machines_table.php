@@ -13,7 +13,7 @@ class CreateMachinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('machine', function (Blueprint $table) {
+        Schema::create('machines', function (Blueprint $table) {
             $table->id();
             $table->string('status');   // Should be an ENUM
         });

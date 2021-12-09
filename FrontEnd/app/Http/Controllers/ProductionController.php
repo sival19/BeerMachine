@@ -168,4 +168,17 @@ class ProductionController extends Controller
 
         return view('startProductionView');
     }
+
+    public function ajaxIndex(){
+        return view('ajax');
+    }
+
+    public function getState()
+    {
+        $status = Machine::all();
+
+        if (\Illuminate\Support\Facades\Request::ajax()){
+            return response() ->json($status);
+        }
+    }
 }

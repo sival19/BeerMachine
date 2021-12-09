@@ -26,12 +26,13 @@ public class databaseManager implements IDataManager{
         try {
             if (object instanceof Production) {
                 Production production = (Production) object;
-                preparedStatement = databaseConnector.getConnection().prepareStatement("INSERT INTO productions(machine_id, beer_type, production_size, succeeded_count, failed_count) VALUES (?,?,?,?,?)");
+                preparedStatement = databaseConnector.getConnection().prepareStatement("INSERT INTO productions(machine_id, beer_type, production_size, succeeded_count, failed_count, created_at) VALUES (?,?,?,?,?,?)");
                 preparedStatement.setInt(1, production.getMachineId());
                 preparedStatement.setInt(2, production.getBeerType());
                 preparedStatement.setInt(3, production.getProductionSize());
                 preparedStatement.setInt(4, production.getSucceededCount());
                 preparedStatement.setInt(5, production.getFailedCount());
+                preparedStatement.setTimestamp(6, production.getTimestamp());
                 preparedStatement.execute();
             }
         }catch (SQLException throwables) {

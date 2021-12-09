@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="{{'/css/showProduction.css'}}">
 
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
 
     <div class="createProductionForm">
@@ -43,7 +45,7 @@
             <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed:</label>
         </span>
                 <span>
-        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="0" placeholder="50"
+        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="0.0" placeholder="50"
                required>
     </span>
             </p>
@@ -105,6 +107,37 @@
         </table>
         <br>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            loadFile();
+
+            function loadFile() {
+                $.ajax({
+                    url: 'getState',
+                    type: 'GET',
+                    datatype: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        let ul = $('#state.current.name');
+                        for (i in data) {
+                            let li = $("<li></li>").appendTo(td);
+                            if (document.getElementById('state.current').innerHTML == data[i]) {
+                                li.text(data[i].status)
+                            }
+
+                            td.text(data[i].status);
+                            // let li = $("<li></li>").appendTo(td);
+                            // li.text(data[i].status);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <ul id="state.current.name"></ul>
+
     <table border="1" class="table">
         <tr>
         <tr>
@@ -112,6 +145,7 @@
 
         </tr>
         <td id="state.current"></td>
+        {{--        <td id="state.current.name"></td>--}}
         </tr>
     </table>
     <div>

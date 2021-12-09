@@ -171,9 +171,16 @@ public class OpcUAManager implements IOPCUAManager{
                 pusher.trigger("my-channel", event, Collections.singletonMap("message", v.getValue()));
                 System.out.println(v.getValue());
 
-                if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
-                    opcUAManager.saveProduction();
-                }
+//                 if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
+//                     opcUAManager.saveProduction();
+//                 } else if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 9) {
+//                     opcUAManager.saveProduction();
+//                 }
+
+//                if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
+//                    opcUAManager.saveProduction();
+//                }
+
 
 
             });
