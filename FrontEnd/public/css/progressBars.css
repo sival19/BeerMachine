@@ -1,0 +1,107 @@
+/*.progressBar{*/
+/*    height: 25px;*/
+/*    background-color: #4CAF50;*/
+/*    position: relative;*/
+/*}*/
+body{
+    /*background-color: grey;*/
+}
+
+/*.h1*/
+/*{*/
+/*    margin: auto;*/
+/*    text-align: center;*/
+/*}*/
+
+.label_progressbar
+{
+    color: black;
+    font-weight: 750;
+}
+
+.progressBars
+{
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 30px;         /* Gap from the menu to the progress bars*/
+    padding: 1px 1px 1px 0;
+    max-width: 650px;
+}
+
+.progressBar {
+    margin: 50px auto;
+    width: 100%;
+    max-width: 500px;
+    height: 20px;
+    /*border: 3px solid black;*/
+    /*border-radius: 10px;*/
+    text-align: left;
+}
+
+.progressBars .barlyBar {
+    height: 100%;
+    width: 0;
+    background-color: #05ff36;
+    animation: fill-bar 3s infinite;
+    border-radius: 8px;
+}
+
+.progressBars .maltBar {
+    height: 100%;
+    width: 0;
+    background-color: #05ff36;
+    animation: fill-bar 3s infinite;
+    border-radius: 8px;
+}
+
+.progressBars .hopsBar {
+    height: 100%;
+    width: 0;
+    background-color: #05ff36;
+    animation: fill-bar 3s infinite;
+    border-radius: 8px;
+}
+
+.progressBars .wheatBar {
+    height: 100%;
+    width: 0;
+    background-color: #05ff36;
+    animation: fill-bar 3s infinite;
+    border-radius: 8px;
+}
+
+.progressBars .yeastBar {
+    height: 100%;
+    width: 0;
+    background-color: #05ff36;
+    animation: fill-bar 3s infinite;
+    border-radius: 8px;
+}
+
+.progressBars .maintenanceBar
+{
+    height: 100%;
+    width: 0;
+    background-color: #05ff36;
+    animation: fill-bar 3s infinite;
+    border-radius: 8px;
+}
+
+@keyframes fill-bar {
+    from {width: 100%;}
+    to {width: 0;}
+}
+
+#fillBar{
+
+}
+
+@keyframes test {
+    0%   {top: 0;}
+    25%  {top: 200px;}
+    50%  {top: 100px;}
+    75%  {top: 200px;}
+    100% {top: 0;}
+}
