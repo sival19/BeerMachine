@@ -13,12 +13,11 @@
     </head>
     <body>
 
-{{--    <h1 class="h1">Incredients</h1>--}}
 
     <div class="progressBars">
         <h1 class="h1">Resources</h1>
         <div class="progressBar">
-            <label class="label_progressbar" for="barlyBar">Barley:</label>
+            <label class="label_progressbar" for="barleyBar">Barley:</label>
             <div class="barlyBar">100</div>
         </div>
 
@@ -28,7 +27,7 @@
         </div>
 
         <div class="progressBar">
-            <label class="label_progressbar" for="maltar">Malt:</label>
+            <label class="label_progressbar" for="maltBar">Malt:</label>
             <div class="maltBar">100</div>
         </div>
 
