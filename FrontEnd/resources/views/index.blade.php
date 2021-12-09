@@ -13,7 +13,10 @@
     </head>
     <body>
 
+{{--    <h1 class="h1">Incredients</h1>--}}
+
     <div class="progressBars">
+        <h1 class="h1">Resources</h1>
         <div class="progressBar">
             <label class="label_progressbar" for="barlyBar">Barley:</label>
             <div class="barlyBar">100</div>
