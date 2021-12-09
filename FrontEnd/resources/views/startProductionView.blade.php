@@ -119,14 +119,15 @@
                     datatype: 'json',
                     success: function (data) {
                         console.log(data);
-                        let ul = $('#state.current.name');
+                        let label = $('#getStateData');
+                        var state = document.getElementById('state.current').innerHTML
+                        var currentVal = state.valueOf()
+                        console.log(currentVal)
                         for (i in data) {
-                            let li = $("<li></li>").appendTo(td);
-                            if (document.getElementById('state.current').innerHTML == data[i]) {
-                                li.text(data[i].status)
+                            if (document.getElementById('state.current').innerHTML.valueOf() === data[i].id.value) {
+                                label.empty()
+                                label.append(data[i].status);
                             }
-
-                            td.text(data[i].status);
                             // let li = $("<li></li>").appendTo(td);
                             // li.text(data[i].status);
                         }
@@ -136,16 +137,16 @@
         });
     </script>
 
-    <ul id="state.current.name"></ul>
-
     <table border="1" class="table">
         <tr>
         <tr>
             <td>Machine State</td>
 
         </tr>
-        <td id="state.current"></td>
-        {{--        <td id="state.current.name"></td>--}}
+        <td id="state.current" >17</td>
+        <td>
+            <label id="getStateData">3</label>
+        </td>
         </tr>
     </table>
     <div>

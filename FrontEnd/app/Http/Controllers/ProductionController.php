@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\abortButton;
 use App\Events\clearButton;
+use App\Events\readState;
 use App\Events\resetButton;
 use App\Events\startProdEvent;
 use App\Events\stopButton;
@@ -156,7 +157,9 @@ class ProductionController extends Controller
     public function startProduction()
     {
 
+        event(new readState());
         return view('startProductionView');
+
     }
 
     public function ajaxIndex(){
