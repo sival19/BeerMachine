@@ -165,7 +165,7 @@ class ProductionController extends Controller
 
     public function getState()
     {
-        $status = Machine::all()->find();
+        $status = Machine::all();
 
         if (\Illuminate\Support\Facades\Request::ajax()){
             return response() ->json($status);

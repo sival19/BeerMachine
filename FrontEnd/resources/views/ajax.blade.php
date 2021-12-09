@@ -22,7 +22,7 @@
                     let ul = $('#getRequestData');
                     for (i in data){
                         let li = $("<li></li>").appendTo(ul);
-                        li.text(data[i].name);
+                        li.text(data[i].status);
                     }
                 }
             });
