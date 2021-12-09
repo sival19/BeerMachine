@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="{{'/css/showProduction.css'}}">
 
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
 
     <div class="createProductionForm">
@@ -105,6 +107,7 @@
         </table>
         <br>
     </div>
+
     <table border="1" class="table">
         <tr>
         <tr>
