@@ -9,3 +9,5 @@ channel.bind('sensor.Temperature', function(data) {document.getElementById('sens
 channel.bind('sensor.Vibration', function(data) {document.getElementById('sensor.Vibration').innerHTML = data.message.value;});
 
 channel.bind('state.current', function(data) {document.getElementById('state.current').innerHTML = data.message.value;});
+channel.bind('state.read', function(data) {document.getElementById('state.current').innerHTML = data.message.value;});
+
