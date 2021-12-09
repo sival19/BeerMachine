@@ -94,6 +94,10 @@ body{
     to {width: 0;}
 }
 
+#fillBar{
+
+}
+
 @keyframes test {
     0%   {top: 0;}
     25%  {top: 200px;}
