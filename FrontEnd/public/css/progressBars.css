@@ -4,17 +4,24 @@
 /*    position: relative;*/
 /*}*/
 body{
-    background-color: grey;
+    /*background-color: grey;*/
 }
 
 .label_progressbar
 {
-    color: #7cff00;
+    color: black;
+    font-weight: 750;
 }
 
 .progressBars
 {
     text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 30px;         /* Gap from the menu to the progress bars*/
+    padding: 1px 1px 1px 0;
+    max-width: 650px;
 }
 
 .progressBar {
@@ -30,7 +37,7 @@ body{
 .progressBars .barlyBar {
     height: 100%;
     width: 0;
-    background-color: red;
+    background-color: #05ff36;
     animation: fill-bar 3s infinite;
     border-radius: 8px;
 }
@@ -38,7 +45,7 @@ body{
 .progressBars .maltBar {
     height: 100%;
     width: 0;
-    background-color: red;
+    background-color: #05ff36;
     animation: fill-bar 3s infinite;
     border-radius: 8px;
 }
@@ -46,7 +53,7 @@ body{
 .progressBars .hopsBar {
     height: 100%;
     width: 0;
-    background-color: red;
+    background-color: #05ff36;
     animation: fill-bar 3s infinite;
     border-radius: 8px;
 }
@@ -54,7 +61,7 @@ body{
 .progressBars .wheatBar {
     height: 100%;
     width: 0;
-    background-color: red;
+    background-color: #05ff36;
     animation: fill-bar 3s infinite;
     border-radius: 8px;
 }
@@ -62,7 +69,7 @@ body{
 .progressBars .yeastBar {
     height: 100%;
     width: 0;
-    background-color: red;
+    background-color: #05ff36;
     animation: fill-bar 3s infinite;
     border-radius: 8px;
 }
@@ -71,7 +78,7 @@ body{
 {
     height: 100%;
     width: 0;
-    background-color: red;
+    background-color: #05ff36;
     animation: fill-bar 3s infinite;
     border-radius: 8px;
 }

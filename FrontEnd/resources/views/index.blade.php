@@ -15,27 +15,27 @@
 
     <div class="progressBars">
         <div class="progressBar">
-            <label class="label_progressbar" for="barlyBar">Barley</label>
+            <label class="label_progressbar" for="barlyBar">Barley:</label>
             <div class="barlyBar">100</div>
         </div>
 
         <div class="progressBar">
-            <label class="label_progressbar" for="hopsBar">Hops</label>
+            <label class="label_progressbar" for="hopsBar">Hops:</label>
             <div class="hopsBar">100</div>
         </div>
 
         <div class="progressBar">
-            <label class="label_progressbar" for="maltar">Malt</label>
+            <label class="label_progressbar" for="maltar">Malt:</label>
             <div class="maltBar">100</div>
         </div>
 
         <div class="progressBar">
-            <label class="label_progressbar" for="wheatBar">Wheat</label>
+            <label class="label_progressbar" for="wheatBar">Wheat:</label>
             <div class="wheatBar">100</div>
         </div>
 
         <div class="progressBar">
-            <label class="label_progressbar" for="yeastBar">Yeast</label>
+            <label class="label_progressbar" for="yeastBar">Yeast:</label>
             <div class="yeastBar">100</div>
         </div>
 
