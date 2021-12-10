@@ -49,7 +49,7 @@
                             productionSize.text(data[i].production_size)
                             succeededCount.text(data[i].succeeded_count)
                             failedCount.text(data[i].failed_count)
-                            
+
                             var dateString = data[i].created_at.toString()
                             var dateFormattedString = dateString.replace(".000000Z", "")
                             createdAt.text(dateFormattedString.replace("T", " "))
