@@ -68,6 +68,27 @@ public class OpcUAManager implements IOPCUAManager{
     }
 
     @Override
+    public Variant readNode(String nodeID, String event){
+        OpcUaClient client = opcUAconnector.connectOPC();
+        try {
+            //NodeId's for each Production attribute
+            NodeId readNode = NodeId.parse(nodeID);
+            //DataValues for each Production attribute
+            DataValue readNodeValue = client.readValue(0, TimestampsToReturn.Both, readNode).get();
+            //Variant values for each Production attribute
+            value = readNodeValue.getValue();
+
+            Pusher pusher = new Pusher("1296403", "bb1e7f7e02b15b9d2e7b", "77f7d6cfb7ccffdad051");
+            pusher.setCluster("eu");
+            pusher.setEncrypted(true);
+            pusher.trigger("my-channel", event, Collections.singletonMap("message", value));
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
+        return value;
+    }
+
+    @Override
     public void initiateCommand(int command){
         IOPCUAManager iopcuaManager = OpcUAManager.getInstance();
         iopcuaManager.writeValue("ns=6;s=::Program:Cube.Command.CntrlCmd", command);
