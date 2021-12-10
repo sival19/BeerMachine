@@ -7,6 +7,8 @@ import com.pusher.client.channel.SubscriptionEventListener;
 import pusher.IPusherManager;
 import pusher.PusherManager;
 
+import java.util.concurrent.TimeUnit;
+
 public class Runner {
 
 
@@ -51,6 +53,17 @@ public class Runner {
             System.out.println(pusherEvent.getData());
             iopcuaManager.initiateCommand(1);
         }, "resetChannel");
+
+        iPusherManager.SubscribePusher("App\\Events\\readState", pusherEvent -> {
+            System.out.println(pusherEvent.getData());
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent", "state.read");
+        }, "readChannel");
+
 
 
         //

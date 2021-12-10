@@ -1,4 +1,4 @@
-insert into machine (status)
+insert into machines (status)
 values ('Deactivated'),
        ('Clearing'),
        ('Stopped'),
