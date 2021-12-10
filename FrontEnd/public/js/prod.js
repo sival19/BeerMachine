@@ -1,5 +1,19 @@
 let channel = window.pusher.subscribe('my-channel');
 
+const yeastBar = document.querySelector('#yeast-bar');
+
+const animateYeastBar = () => {
+    channel.bind('yeastAmount', function(data) {console.log(data.message.value);});
+    let maxInv = 35000;
+
+    // console.log(currentInv)
+
+}
+
+animateYeastBar();
+
+
+
 channel.bind('production.produced', function(data) {document.getElementById('production.produced').innerHTML = data.message.value.value;});
 channel.bind('production.Defective', function(data) {document.getElementById('production.Defective').innerHTML = data.message.value;});
 channel.bind('production.Good', function(data) {document.getElementById('production.Good').innerHTML = data.message.value.value;});

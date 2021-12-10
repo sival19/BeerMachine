@@ -9,7 +9,12 @@
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
         <meta charset="utf-8">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{'/css/progressBars.css'}}">
     </head>
+
+    <div class="inventoryBars">
+        <div id="yeast-bar"></div>
+    </div>
 
     <div class="createProductionForm">
         <h1 class="h1-start_a_production">Start a production</h1>

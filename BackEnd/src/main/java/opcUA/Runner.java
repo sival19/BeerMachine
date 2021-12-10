@@ -81,6 +81,7 @@ public class Runner {
         Thread t5 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.Temperature", "sensor.Temperature"));
         Thread t6 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.Vibration", "sensor.Vibration"));
         Thread t8 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Status.StateCurrent", "state.current"));
+        Thread t9 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Yeast", "yeastAmount"));
 
         t1.start();
         t2.start();
@@ -89,5 +90,6 @@ public class Runner {
         t5.start();
         t6.start();
         t8.start();
+        t9.start();
     }
 }
