@@ -1,149 +1,19 @@
-/*.progressBar{*/
-/*    height: 25px;*/
-/*    background-color: #4CAF50;*/
-/*    position: relative;*/
-/*}*/
-body{
-
-    /*background-color: grey;*/
-}
+/* All bars */
 
 
-/*.h1*/
-/*{*/
+
+/*.inventoryBars {*/
+/*    border-radius: 5px;*/
 /*    margin: auto;*/
-/*    text-align: center;*/
-/*}*/
-
-/*.label_progressbar*/
-/*{*/
-/*    color: black;*/
-/*    font-weight: 750;*/
-/*}*/
-
-/*.progressBars*/
-/*{*/
-/*    text-align: center;*/
+/*    margin-top: 30px;*/
 /*    background-color: #f2f2f2;*/
-/*    border-radius: 10px;*/
-/*    margin: auto;*/
-/*    margin-top: 30px;         !* Gap from the menu to the progress bars*!*/
-/*    padding: 1px 1px 1px 0;*/
-/*    max-width: 650px;*/
-/*}*/
-
-/*.progressBar {*/
-/*    margin: 50px auto;*/
-/*    width: 100%;*/
+/*    padding: 20px;*/
 /*    max-width: 500px;*/
-/*    height: 20px;*/
-/*    !*border: 3px solid black;*!*/
-/*    !*border-radius: 10px;*!*/
+/*    flex: 0 1 auto;*/
 /*    text-align: left;*/
 /*}*/
 
-/*.progressBars .barlyBar {*/
-/*    height: 100%;*/
-/*    width: 0;*/
-/*    background-color: #05ff36;*/
-/*    animation: barleyAnimation 3s infinite;*/
-/*    border-radius: 8px;*/
-/*}*/
-
-/*@keyframes barleyAnimation {*/
-/*    from {width: 100%;}*/
-/*    to {width: 0%;}*/
-/*}*/
-
-/*.progressBars .maltBar {*/
-/*    height: 100%;*/
-/*    width: 0;*/
-/*    background-color: #05ff36;*/
-/*    animation: maltAnimation 3s infinite;*/
-/*    border-radius: 8px;*/
-/*}*/
-/*@keyframes maltAnimation {*/
-/*    from {width: 100%;}*/
-/*    to {width: 0%;}*/
-/*}*/
-
-/*.progressBars .hopsBar {*/
-/*    height: 100%;*/
-/*    width: 0;*/
-/*    background-color: #05ff36;*/
-/*    animation: hopsAnimation 3s infinite;*/
-/*    border-radius: 8px;*/
-/*}*/
-/*@keyframes hopsAnimation {*/
-/*    from {width: 100%;}*/
-/*    to {width: 0%;}*/
-/*}*/
-
-/*.progressBars .wheatBar {*/
-/*    height: 100%;*/
-/*    width: 0;*/
-/*    background-color: #05ff36;*/
-/*    animation: wheatAnimation 3s infinite;*/
-/*    border-radius: 8px;*/
-/*}*/
-/*@keyframes wheatAnimation {*/
-/*    from {width: 100%;}*/
-/*    to {width: 0%;}*/
-/*}*/
-
-/*.progressBars .yeastBar {*/
-/*    height: 100%;*/
-/*    width: 0;*/
-/*    background-color: #05ff36;*/
-/*    border-radius: 8px;*/
-/*}*/
-/*@keyframes yeastAnimation {*/
-/*    from {width: 100%;}*/
-/*    to {width: 0%;}*/
-/*}*/
-
-/*#yeast-animation{*/
-/*    animation: yeastAnimation 3s;*/
-/*}*/
-
-/*.progressBars .maintenanceBar*/
-/*{*/
-/*    height: 100%;*/
-/*    width: 0;*/
-/*    background-color: #05ff36;*/
-/*    animation: fill-bar 3s infinite;*/
-/*    border-radius: 8px;*/
-/*}*/
-
-/*@keyframes fill-bar {*/
-/*    from {width: 100%;}*/
-/*    to {width: 0;}*/
-/*}*/
-
-/*#fillBar{*/
-
-/*}*/
-
-/*@keyframes test {*/
-/*    0%   {top: 0;}*/
-/*    25%  {top: 200px;}*/
-/*    50%  {top: 100px;}*/
-/*    75%  {top: 200px;}*/
-/*    100% {top: 0;}*/
-/*}*/
-.inventoryBars {
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 30px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    max-width: 500px;
-    flex: 0 1 auto;
-    text-align: left;
-}
-
-
-
+/* Specific bar */
 #yeast-bar {
     position: fixed;
     max-width: 400px;
