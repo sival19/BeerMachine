@@ -72,7 +72,8 @@ input[type=submit]:hover {
 .createProductionForm {
     display: inline-block;
     border-radius: 5px;
-    margin: auto;
+    /*margin: auto;*/
+    /*margin-left: -400px;*/
     margin-top: 30px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -92,16 +93,23 @@ body{
     text-align: center;
 }
 
+.inventoryHeader
+{
+    margin-top: -50px;
+}
 
 .inventoryBars {
     display: inline-block;
     border-radius: 5px;
-    /*margin-left: auto;*/
+    /*margin-right: 400px;*/
+    /*margin-left: -200px;*/
     /*margin-top: 30px;*/
     background-color: #f2f2f2;
-    padding: 10%;
-    padding-bottom: 295px;
-    padding-top: -200px;
+    padding: 11.5%;
+    padding-bottom: 273px;
+    padding-top: -190px;
+    padding-left: 140px;
+    padding-right: 180px;
     /*padding-left: 60px;*/
     /*max-width: 100%;*/
     /*flex: 0 1 auto;*/
@@ -111,14 +119,16 @@ body{
 
 #yeast-bar {
     margin-left: -130px;
-    margin-top: -140px;
+    margin-top: -120px;
     position: absolute;
     max-width: 400px;
-    width: 260px;
+    width: 300px;
     height: 40px;
     background: linear-gradient(to left, green,red);
     /*width: 100%;*/
     z-index: 1;
 }
+
+
 
 

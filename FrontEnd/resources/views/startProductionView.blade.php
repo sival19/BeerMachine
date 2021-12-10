@@ -14,7 +14,9 @@
 
 
     <div class="inventoryBars">
-        <div id="yeast-bar"></div>
+        <div id="yeast-bar">
+            <h1 class="inventoryHeader">Inventory</h1>
+        </div>
     </div>
 
     <div class="createProductionForm">
