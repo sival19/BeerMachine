@@ -30,10 +30,38 @@
                     datatype: 'json',
                     success: function (data) {
                         console.log(data);
-                        let table = $('#getRequestData');
+                        let getRequestData = $('#getRequestData');
+                        let beerType = $('#beerType')
                         for (i in data) {
-                            let td = $("<td></td>").appendTo(table);
-                            td.(data[i].id);
+                            let tr = $("<tr></tr>").appendTo(getRequestData)
+
+                            let batchID = $("<td></td>").appendTo(tr)
+                            let machineID = $("<td></td>").appendTo(tr)
+                            let beerType = $("<td></td>").appendTo(tr)
+                            let productionSize = $("<td></td>").appendTo(tr)
+                            let succeededCount = $("<td></td>").appendTo(tr)
+                            let failedCount = $("<td></td>").appendTo(tr)
+                            let createdAt = $("<td></td>").appendTo(tr)
+
+                            batchID.text(data[i].id)
+                            machineID.text(data[i].machine_id)
+                            beerType.text(data[i].beer_type)
+                            productionSize.text(data[i].production_size)
+                            succeededCount.text(data[i].succeeded_count)
+                            failedCount.text(data[i].failed_count)
+                            
+                            var dateString = data[i].created_at.toString()
+                            var dateFormattedString = dateString.replace(".000000Z", "")
+                            createdAt.text(dateFormattedString.replace("T", " "))
+
+
+
+
+
+                            // batchID.empty()
+                            // batchID.append(data[i].id)
+                            // beerType.empty()
+                            // beerType.append(data[i].beer_type)
                         }
                     }
                 });
@@ -41,12 +69,16 @@
         });
     </script>
 
-    <table border="1">
+    <table border="1" id="getRequestData">
         <tr>
-            <th>Production ID</th>
-            <th>Created at</th>
-        </tr>
-        <tr class="getRequestData">
+            <th>Batch ID</th>
+            <th>Machine status</th>
+            <th>Beer Type</th>
+            <th>Production Size</th>
+            <th>Successfull Products</th>
+            <th>Defect Products</th>
+            <th>Production Date</th>
+
         </tr>
 
     </table>

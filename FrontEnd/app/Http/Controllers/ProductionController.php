@@ -100,7 +100,7 @@ class ProductionController extends Controller
     public function getProductions()
     {
 //        $productions = Production::all()->find();
-        $productions = Production::all('id', 'created_at');
+        $productions = Production::all();
 
         if (\Illuminate\Support\Facades\Request::ajax()){
             return response() ->json($productions);
@@ -172,9 +172,6 @@ class ProductionController extends Controller
 
     }
 
-    public function ajaxIndex(){
-        return view('ajax');
-    }
 
     public function getState()
     {
