@@ -14,11 +14,11 @@
 /*}*/
 
 /* Specific bar */
-#yeast-bar {
-    position: fixed;
-    max-width: 400px;
-    height: 60px;
-    background: linear-gradient(to left, green,red);
-    width: 100%;
-    z-index: 100;
-}
+/*#yeast-bar {*/
+/*    position: fixed;*/
+/*    max-width: 400px;*/
+/*    height: 60px;*/
+/*    background: linear-gradient(to left, green,red);*/
+/*    width: 100%;*/
+/*    z-index: 100;*/
+/*}*/

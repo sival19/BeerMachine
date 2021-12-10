@@ -91,14 +91,29 @@ body{
 .inventoryBars {
     display: inline-block;
     border-radius: 5px;
-    margin: auto;
-    margin-top: 30px;
+    /*margin-left: auto;*/
+    /*margin-top: 30px;*/
     background-color: #f2f2f2;
-    padding: 50px;
+    padding: 10%;
+    padding-bottom: 295px;
+    padding-top: -200px;
     /*padding-left: 60px;*/
-    max-width: 500px;
-    flex: 0 1 auto;
-    text-align: left;
+    /*max-width: 100%;*/
+    /*flex: 0 1 auto;*/
+    /*text-align: left;*/
+}
+
+
+#yeast-bar {
+    margin-left: -130px;
+    margin-top: -140px;
+    position: absolute;
+    max-width: 400px;
+    width: 260px;
+    height: 40px;
+    background: linear-gradient(to left, green,red);
+    /*width: 100%;*/
+    z-index: 1;
 }
 
 

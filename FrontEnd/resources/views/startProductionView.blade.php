@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="{{'/css/progressBars.css'}}">
     </head>
 
+
     <div class="inventoryBars">
         <div id="yeast-bar"></div>
     </div>
