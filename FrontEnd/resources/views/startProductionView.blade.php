@@ -13,6 +13,8 @@
     </head>
 
 
+
+
     <div class="inventoryBars">
         <p><strong>Inventory</strong></p>
         <label for="yeast-bar">Yeast</label>
@@ -31,6 +33,8 @@
         <div class="bar" id="barley-bar">
         </div>
     </div>
+
+
 
     <div class="createProductionForm">
         <h1 class="h1-start_a_production">Start a production</h1>
@@ -100,6 +104,10 @@
 
         </form>
 
+    </div>
+    <div class="maintenance">
+        <p class="maintenanceP"><strong>Maintenance</strong></p>
+        <div class="maintenanceBar" id="maintenanceBar"></div>
     </div>
 
 
