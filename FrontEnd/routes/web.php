@@ -32,8 +32,6 @@ Route::get('/show_Start_Production', [ProductionController::class, 'startProduct
 
 Route::get('/getProductions', [ProductionController::class, 'getProductions'])->name('getProductions');
 
-
-Route::get('/ajax', [ProductionController::class, 'ajaxIndex'])->name('ajaxIndex');
 Route::get('/getState', [ProductionController::class, 'getState'])->name('machine.state');
 
 

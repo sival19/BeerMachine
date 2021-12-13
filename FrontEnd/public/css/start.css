@@ -83,6 +83,25 @@ input[type=submit]:hover {
     text-align: left;
 }
 
+.table {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.stateTable{
+    border-radius: 5px;
+    margin: 20px auto auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width: 500px;
+    text-align: left;
+}
+
+
+
 
 select{
     text-align-last:left;

@@ -134,7 +134,16 @@
                 <td id="sensor.Vibration"></td>
             </tr>
         </table>
-        <br>
+        <p><strong>Machine State</strong></p>
+
+        <table border="1" class="table">
+            <tr>
+                <td id="state.current">15</td>
+                <td id="stateString" class="tableStateString">
+                    <label id="getStateData">3</label>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <script>
@@ -147,15 +156,25 @@
                     type: 'GET',
                     datatype: 'json',
                     success: function (data) {
-                        console.log(data);
+                        // console.log(data);
                         let label = $('#getStateData');
-                        var state = document.getElementById('state.current').innerHTML
-                        var currentVal = state.valueOf()
-                        console.log(currentVal)
+
+                        // var currentVal = state.valueOf()
+                        // console.log(currentVal)
                         for (i in data) {
-                            if (document.getElementById('state.current').innerHTML.valueOf() === data[i].id.value) {
+                            if (parseInt(document.getElementById('state.current').innerHTML.valueOf()) === parseInt(data[i].id)) {
+                                var state = parseInt(document.getElementById('state.current').innerHTML.valueOf());
+
+                                if (state <= 11) {
+                                    state = state;
+                                } else if (state >= 15) {
+                                    state = state - 3
+                                }
+
                                 label.empty()
-                                label.append(data[i].status);
+                                label.append(data[state].status);
+                                loadFile()
+
                             }
                             // let li = $("<li></li>").appendTo(td);
                             // li.text(data[i].status);
@@ -165,6 +184,18 @@
             }
         });
     </script>
+
+{{--    <div class="stateTable">--}}
+{{--        <table border="1" class="table"> Machine Status--}}
+{{--            <tr>--}}
+{{--                <td id="state.current">15</td>--}}
+{{--                <td id="stateString" class="tableStateString">--}}
+{{--                    <label id="getStateData">3</label>--}}
+{{--                </td>--}}
+{{--            </tr>--}}
+{{--        </table>--}}
+{{--    </div>--}}
+
 
     <table border="1" class="table">
         <tr>
@@ -178,6 +209,7 @@
         </td>
         </tr>
     </table>
+
     <div>
 
     </div>
