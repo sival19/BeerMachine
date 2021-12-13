@@ -1,107 +1,44 @@
-/*.progressBar{*/
-/*    height: 25px;*/
-/*    background-color: #4CAF50;*/
-/*    position: relative;*/
-/*}*/
-body{
-    /*background-color: grey;*/
+.inventoryHeader
+{
+    margin-top: -50px;
 }
 
-/*.h1*/
-/*{*/
-/*    margin: auto;*/
-/*    text-align: center;*/
-/*}*/
-
-.label_progressbar
-{
-    color: black;
-    font-weight: 750;
-}
-
-.progressBars
-{
-    text-align: center;
+.inventoryBars {
+    display: inline-block;
+    height: 450px;
+    vertical-align: bottom;
+    border-radius: 5px;
     background-color: #f2f2f2;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 30px;         /* Gap from the menu to the progress bars*/
-    padding: 1px 1px 1px 0;
-    max-width: 650px;
-}
-
-.progressBar {
-    margin: 50px auto;
-    width: 100%;
-    max-width: 500px;
-    height: 20px;
-    /*border: 3px solid black;*/
-    /*border-radius: 10px;*/
+    padding: 20px;
+    min-width: 300px;
+    flex: 0 1 auto;
     text-align: left;
 }
 
-.progressBars .barlyBar {
-    height: 100%;
-    width: 0;
-    background-color: #05ff36;
-    animation: fill-bar 3s infinite;
-    border-radius: 8px;
+
+.bar {
+    width: 300px;
+    height: 20px;
+    background: linear-gradient(to left, green,red);
+    z-index: 1;
 }
 
-.progressBars .maltBar {
-    height: 100%;
-    width: 0;
-    background-color: #05ff36;
-    animation: fill-bar 3s infinite;
-    border-radius: 8px;
+.maintenance {
+    display: inline-block;
+    vertical-align: bottom;
+    border-radius: 5px;
+    min-height: 450px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    flex: 0 1 auto;
+    text-align: left;
 }
 
-.progressBars .hopsBar {
-    height: 100%;
-    width: 0;
-    background-color: #05ff36;
-    animation: fill-bar 3s infinite;
-    border-radius: 8px;
+.maintenanceBar{
+    width: 90px;
+    height: 400px;
+    background: linear-gradient(to top, green,red);
+    z-index: 1;
 }
 
-.progressBars .wheatBar {
-    height: 100%;
-    width: 0;
-    background-color: #05ff36;
-    animation: fill-bar 3s infinite;
-    border-radius: 8px;
-}
 
-.progressBars .yeastBar {
-    height: 100%;
-    width: 0;
-    background-color: #05ff36;
-    animation: fill-bar 3s infinite;
-    border-radius: 8px;
-}
-
-.progressBars .maintenanceBar
-{
-    height: 100%;
-    width: 0;
-    background-color: #05ff36;
-    animation: fill-bar 3s infinite;
-    border-radius: 8px;
-}
-
-@keyframes fill-bar {
-    from {width: 100%;}
-    to {width: 0;}
-}
-
-#fillBar{
-
-}
-
-@keyframes test {
-    0%   {top: 0;}
-    25%  {top: 200px;}
-    50%  {top: 100px;}
-    75%  {top: 200px;}
-    100% {top: 0;}
-}

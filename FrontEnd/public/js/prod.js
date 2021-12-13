@@ -1,5 +1,70 @@
 let channel = window.pusher.subscribe('my-channel');
 
+const yeastBar = document.querySelector('#yeast-bar');
+const hopsBar = document.querySelector('#hops-bar');
+const maltBar = document.querySelector('#malt-bar');
+const barleyBar = document.querySelector('#barley-bar');
+const wheatBar = document.querySelector('#wheat-bar');
+
+const animateYeastBar = () => {
+    channel.bind('yeastAmount', function(data){
+        let maxInv = 35000;
+        let currentInv = data.message.value
+        let yeastProgressWidth = (currentInv / maxInv) * 100;
+        let yeastValue = Math.floor(yeastProgressWidth);
+        yeastBar.innerHTML = currentInv;
+        yeastBar.style.width = yeastValue * 3 + 'px';
+
+    });}
+const animateHopsBar = () => {
+    channel.bind('hopsAmount', function(data){
+        let maxInv = 35000;
+        let currentInv = data.message.value
+        let yeastProgressWidth = (currentInv / maxInv) * 100;
+        let yeastValue = Math.floor(yeastProgressWidth);
+        hopsBar.innerHTML = currentInv;
+        hopsBar.style.width = yeastValue * 3 + 'px';
+
+    });}
+const animateMaltBar = () => {
+    channel.bind('maltAmount', function(data){
+        let maxInv = 35000;
+        let currentInv = data.message.value
+        let yeastProgressWidth = (currentInv / maxInv) * 100;
+        let yeastValue = Math.floor(yeastProgressWidth);
+        maltBar.innerHTML = currentInv;
+        maltBar.style.width = yeastValue * 3 + 'px';
+
+    });}
+const animateBarleyBar = () => {
+    channel.bind('barleyAmount', function(data){
+        let maxInv = 35000;
+        let currentInv = data.message.value
+        let yeastProgressWidth = (currentInv / maxInv) * 100;
+        let yeastValue = Math.floor(yeastProgressWidth);
+        barleyBar.innerHTML = currentInv;
+        barleyBar.style.width = yeastValue * 3 + 'px';
+
+    });}
+const animateWheatBar = () => {
+    channel.bind('wheatAmount', function(data){
+        let maxInv = 35000;
+        let currentInv = data.message.value
+        let yeastProgressWidth = (currentInv / maxInv) * 100;
+        let yeastValue = Math.floor(yeastProgressWidth);
+        wheatBar.innerHTML = currentInv;
+        wheatBar.style.width = yeastValue * 3 + 'px';
+
+    });}
+
+animateHopsBar();
+animateYeastBar();
+animateWheatBar();
+animateBarleyBar();
+animateMaltBar();
+
+
+
 channel.bind('production.produced', function(data) {document.getElementById('production.produced').innerHTML = data.message.value.value;});
 channel.bind('production.Defective', function(data) {document.getElementById('production.Defective').innerHTML = data.message.value;});
 channel.bind('production.Good', function(data) {document.getElementById('production.Good').innerHTML = data.message.value.value;});
