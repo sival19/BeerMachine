@@ -50,6 +50,11 @@ input[type=text], select {
     background: aqua;       /* Colour: Only for testing purposes */
 }
 
+.stop
+{
+    background-color: red; /* Colour: Only for testing purposes */
+}
+
 
 
 
@@ -62,12 +67,17 @@ input[type=submit]:hover {
     margin-top: -10px;
 }
 
+
+
 .createProductionForm {
+    display: inline-block;
     border-radius: 5px;
-    margin: auto;
+    /*margin: auto;*/
+    /*margin-left: -400px;*/
     margin-top: 30px;
     background-color: #f2f2f2;
     padding: 20px;
+    min-height: 450px;
     max-width: 500px;
     flex: 0 1 auto;
     text-align: left;
@@ -101,4 +111,11 @@ select{
 
 body{
     text-align: center;
+    background-color: bisque;
 }
+
+
+
+
+
+
