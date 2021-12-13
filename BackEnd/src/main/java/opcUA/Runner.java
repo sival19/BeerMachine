@@ -29,8 +29,10 @@ public class Runner {
                 //start production on event
                 iopcuaManager.startSequence(1,type,amount,speed);
         }, "my-channel");
+
 //        iopcuaManager.initiateCommand(1);
 //        iopcuaManager.startSequence((float) 1,(float) 0,(float) 9900,(float) 600);
+
 
         iPusherManager.SubscribePusher("App\\Events\\stopButton", pusherEvent -> {
             System.out.println(pusherEvent.getData()
@@ -100,5 +102,6 @@ public class Runner {
         t11.start();
         t12.start();
         t13.start();
+
     }
 }
