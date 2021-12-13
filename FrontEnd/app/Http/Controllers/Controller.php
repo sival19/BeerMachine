@@ -13,6 +13,6 @@ class Controller extends BaseController
 
     public function production_index()
     {
-        return view('index');
+        return view('startProductionView');
     }
 }
