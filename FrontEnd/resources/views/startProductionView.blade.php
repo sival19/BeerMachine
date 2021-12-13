@@ -18,17 +18,17 @@
         <label for="yeast-bar">Yeast</label>
         <div class="bar" id="yeast-bar">
         </div>
-        <label for="hops-bar" id="hops-bar">Hops</label>
-        <div class="bar">
+        <label for="hops-bar">Hops</label>
+        <div class="bar" id="hops-bar">
         </div>
-        <label for="malt-bar" id="malt-bar">Malt</label>
-        <div class="bar">
+        <label for="malt-bar">Malt</label>
+        <div class="bar" id="malt-bar">
         </div>
-        <label for="wheat-bar" id="wheat-bar">Wheat</label>
-        <div class="bar">
+        <label for="wheat-bar">Wheat</label>
+        <div class="bar" id="wheat-bar">
         </div>
-        <label for="barley-bar" id="barley-bar">Barley</label>
-        <div class="bar">
+        <label for="barley-bar">Barley</label>
+        <div class="bar" id="barley-bar">
         </div>
     </div>
 

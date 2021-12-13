@@ -30,7 +30,7 @@ public class Runner {
                 iopcuaManager.startSequence(1,type,amount,speed);
         }, "my-channel");
 //        iopcuaManager.initiateCommand(1);
-//        iopcuaManager.startSequence((float) 1,(float) 3,(float) 300,(float) 10);
+//        iopcuaManager.startSequence((float) 1,(float) 0,(float) 9900,(float) 600);
 
         iPusherManager.SubscribePusher("App\\Events\\stopButton", pusherEvent -> {
             System.out.println(pusherEvent.getData()
@@ -57,11 +57,12 @@ public class Runner {
         iPusherManager.SubscribePusher("App\\Events\\readState", pusherEvent -> {
             System.out.println(pusherEvent.getData());
             try {
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent", "state.read");
+            Thread t1 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Status.StateCurrent", "state.current"));
+            t1.start();
         }, "readChannel");
 
 
@@ -82,6 +83,10 @@ public class Runner {
         Thread t6 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.Vibration", "sensor.Vibration"));
         Thread t8 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Status.StateCurrent", "state.current"));
         Thread t9 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Yeast", "yeastAmount"));
+        Thread t10 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Barley", "barleyAmount"));
+        Thread t11 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Hops", "hopsAmount"));
+        Thread t12 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Malt", "maltAmount"));
+        Thread t13 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Wheat", "wheatAmount"));
 
         t1.start();
         t2.start();
@@ -91,5 +96,9 @@ public class Runner {
         t6.start();
         t8.start();
         t9.start();
+        t10.start();
+        t11.start();
+        t12.start();
+        t13.start();
     }
 }
