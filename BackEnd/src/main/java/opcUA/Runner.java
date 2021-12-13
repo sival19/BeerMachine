@@ -30,7 +30,7 @@ public class Runner {
                 iopcuaManager.startSequence(1,type,amount,speed);
         }, "my-channel");
         iopcuaManager.initiateCommand(1);
-        iopcuaManager.startSequence((float) 1,(float) 3,(float) 300,(float) 160);
+        iopcuaManager.startSequence((float) 1,(float) 4,(float) 300,(float) 25);
 
         iPusherManager.SubscribePusher("App\\Events\\stopButton", pusherEvent -> {
             System.out.println(pusherEvent.getData()
@@ -54,15 +54,15 @@ public class Runner {
             iopcuaManager.initiateCommand(1);
         }, "resetChannel");
 
-//        iPusherManager.SubscribePusher("App\\Events\\readState", pusherEvent -> {
-//            System.out.println(pusherEvent.getData());
-//            try {
-//                TimeUnit.SECONDS.sleep(2);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent", "state.read");
-//        }, "readChannel");
+        iPusherManager.SubscribePusher("App\\Events\\readState", pusherEvent -> {
+            System.out.println(pusherEvent.getData());
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent", "state.read");
+        }, "readChannel");
 
 
 
