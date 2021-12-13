@@ -14,8 +14,21 @@
 
 
     <div class="inventoryBars">
-        <div id="yeast-bar">
-            <h1 class="inventoryHeader">Inventory</h1>
+        <p><strong>Inventory</strong></p>
+        <label for="yeast-bar">Yeast</label>
+        <div class="bar" id="yeast-bar">
+        </div>
+        <label for="hops-bar" id="hops-bar">Hops</label>
+        <div class="bar">
+        </div>
+        <label for="malt-bar" id="malt-bar">Malt</label>
+        <div class="bar">
+        </div>
+        <label for="wheat-bar" id="wheat-bar">Wheat</label>
+        <div class="bar">
+        </div>
+        <label for="barley-bar" id="barley-bar">Barley</label>
+        <div class="bar">
         </div>
     </div>
 
@@ -151,7 +164,7 @@
             <td>Machine State</td>
 
         </tr>
-        <td id="state.current" >17</td>
+        <td id="state.current">17</td>
         <td>
             <label id="getStateData">3</label>
         </td>

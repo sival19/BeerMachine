@@ -1,24 +1,22 @@
-/* All bars */
+.inventoryHeader
+{
+    margin-top: -50px;
+}
+
+.inventoryBars {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    min-width: 300px;
+    flex: 0 1 auto;
+    text-align: left;
+}
 
 
-
-/*.inventoryBars {*/
-/*    border-radius: 5px;*/
-/*    margin: auto;*/
-/*    margin-top: 30px;*/
-/*    background-color: #f2f2f2;*/
-/*    padding: 20px;*/
-/*    max-width: 500px;*/
-/*    flex: 0 1 auto;*/
-/*    text-align: left;*/
-/*}*/
-
-/* Specific bar */
-/*#yeast-bar {*/
-/*    position: fixed;*/
-/*    max-width: 400px;*/
-/*    height: 60px;*/
-/*    background: linear-gradient(to left, green,red);*/
-/*    width: 100%;*/
-/*    z-index: 100;*/
-/*}*/
+.bar {
+    width: 300px;
+    height: 20px;
+    background: linear-gradient(to left, green,red);
+    z-index: 1;
+}
