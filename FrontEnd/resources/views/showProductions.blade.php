@@ -7,20 +7,19 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{'/css/showProductions.css'}}">
 
         <title>Document</title>
     </head>
 
     <title>Show production</title>
 
-    <h1>Show productions</h1>
 
-    <br>
-    <h3> See a specific production:</h3>
-    <br>
+
 
     <div class = "productions">
-        <table border="1">
+        <h3> List of productions</h3>
+        <table border="1" class="table">
             <tr>
                 <th>Batch Id</th>
                 <th>Machine Status</th>
