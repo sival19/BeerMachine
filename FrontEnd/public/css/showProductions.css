@@ -1,0 +1,34 @@
+body{
+    background-color: bisque;
+}
+
+
+.productions {
+    border-radius: 5px;
+    margin: 20px auto auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+}
+
+.table {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.items {
+    border-radius: 5px;
+    margin: 20px auto auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width: 500px;
+    text-align: left;
+    font-size: 50px;
+    color: red;
+}
+
+
