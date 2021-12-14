@@ -13,7 +13,7 @@
 
     <h1>Show production</h1>
 
-    <label>{{$production->id}}</label>
+    <label>{{$production->production_size}}</label>
 
     </body>
     </html>

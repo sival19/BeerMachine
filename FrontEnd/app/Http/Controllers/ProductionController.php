@@ -115,11 +115,10 @@ class ProductionController extends Controller
 
     }
 
-    public function show_production(Production $production)
+    public function show_production($id)
     {
-        $production = Production::all()->where('id','=', 1);
-        dd($production);
 
+        $production = Production::find($id);
         return view('showProduction', ['production'=> $production]);
     }
 
