@@ -94,7 +94,8 @@ class ProductionController extends Controller
 
     public function show_productions()
     {
-        return view('showProductions');
+        $productions = Production::all();
+        return view('showProductions', ['productions'=>$productions]);
     }
 
     public function getProductions()
@@ -114,9 +115,12 @@ class ProductionController extends Controller
 
     }
 
-    public function show_production()
+    public function show_production(Production $production)
     {
-        return view('showProduction');
+        $production = Production::all()->where('id','=', 1);
+        dd($production);
+
+        return view('showProduction', ['production'=> $production]);
     }
 
     public function beginProduction(Request $request)

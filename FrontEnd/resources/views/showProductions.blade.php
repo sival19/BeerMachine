@@ -17,7 +17,6 @@
 
     <br>
     <h3> See a specific production:</h3>
-    <a href="{{route("show_production-link")}}">See a production</a>
     <br>
 
     <script type="text/javascript">
@@ -29,7 +28,6 @@
                     type: 'GET',
                     datatype: 'json',
                     success: function (data) {
-                        console.log(data);
                         let getRequestData = $('#getRequestData');
                         let beerType = $('#beerType')
                         for (i in data) {
@@ -42,6 +40,13 @@
                             let succeededCount = $("<td></td>").appendTo(tr)
                             let failedCount = $("<td></td>").appendTo(tr)
                             let createdAt = $("<td></td>").appendTo(tr)
+                            let showProduction = $("<td></td>").appendTo(tr)
+
+                            @foreach($productions as $production)
+                            $("<a href='{{route("show_production-link", [$production->id])}}'>Show production</a>").appendTo(showProduction)
+                            @endforeach
+                            // link.appendTo(showProduction)
+
 
                             batchID.text(data[i].id)
                             machineID.text(data[i].machine_id)
@@ -49,6 +54,7 @@
                             productionSize.text(data[i].production_size)
                             succeededCount.text(data[i].succeeded_count)
                             failedCount.text(data[i].failed_count)
+                            showProduction.text()
 
                             var dateString = data[i].created_at.toString()
                             var dateFormattedString = dateString.replace(".000000Z", "")
@@ -78,6 +84,8 @@
             <th>Successfull Products</th>
             <th>Defect Products</th>
             <th>Production Date</th>
+            <th>Show Production</th>
+
 
         </tr>
 
