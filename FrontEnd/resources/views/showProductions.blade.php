@@ -22,14 +22,14 @@
     <div class = "productions">
         <table border="1">
             <tr>
-                <td>Batch Id</td>
-                <td>Machine Status</td>
-                <td>Beer Type</td>
-                <td>Production Size</td>
-                <td>Sucessfull Products</td>
-                <td>Defect Products</td>
-                <td>Production Date</td>
-                <td>Show Production</td>
+                <th>Batch Id</th>
+                <th>Machine Status</th>
+                <th>Beer Type</th>
+                <th>Production Size</th>
+                <th>Sucessfull Products</th>
+                <th>Defect Products</th>
+                <th>Production Date</th>
+                <th>Show Production</th>
             </tr>
 
             @foreach($productions as $production)
