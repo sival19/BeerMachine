@@ -5,6 +5,7 @@ const hopsBar = document.querySelector('#hops-bar');
 const maltBar = document.querySelector('#malt-bar');
 const barleyBar = document.querySelector('#barley-bar');
 const wheatBar = document.querySelector('#wheat-bar');
+const maintenanceBar = document.querySelector('#maintenanceBar')
 
 const animateYeastBar = () => {
     channel.bind('yeastAmount', function(data){
@@ -54,6 +55,17 @@ const animateWheatBar = () => {
         let yeastValue = Math.floor(yeastProgressWidth);
         wheatBar.innerHTML = currentInv;
         wheatBar.style.width = yeastValue * 3 + 'px';
+
+    });}
+
+const animateMaintenanceBar = () => {
+    channel.bind('maintenance', function(data){
+        let maintenanceTrigger = 30000;
+        let currentMaintenanceCount = data.message.value
+        let maintenanceWidth = (currentMaintenanceCount / maintenanceTrigger) * 100;
+        let maintValue = Math.floor(maintenanceWidth);
+        maintenanceBar.innerHTML = currentMaintenanceCount;
+        maintenanceBar.style.height = maintValue * 4 + 'px';
 
     });}
 

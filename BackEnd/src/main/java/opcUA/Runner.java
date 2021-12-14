@@ -89,6 +89,7 @@ public class Runner {
         Thread t11 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Hops", "hopsAmount"));
         Thread t12 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Malt", "maltAmount"));
         Thread t13 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Wheat", "wheatAmount"));
+        Thread t14 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Maintenance.Counter", "maintenance"));
 
         t1.start();
         t2.start();
@@ -102,6 +103,7 @@ public class Runner {
         t11.start();
         t12.start();
         t13.start();
+        t14.start();
 
     }
 }
