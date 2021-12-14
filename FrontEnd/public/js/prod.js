@@ -61,14 +61,15 @@ const animateWheatBar = () => {
 const animateMaintenanceBar = () => {
     channel.bind('maintenance', function(data){
         let maintenanceTrigger = 30000;
-        let currentMaintenanceCount = data.message.value
+        let currentMaintenanceCount = data.message.value.value;
         let maintenanceWidth = (currentMaintenanceCount / maintenanceTrigger) * 100;
         let maintValue = Math.floor(maintenanceWidth);
-        maintenanceBar.innerHTML = currentMaintenanceCount;
+        maintenanceBar.innerHTML = currentMaintenanceCount + '/30000';
         maintenanceBar.style.height = maintValue * 4 + 'px';
 
     });}
 
+animateMaintenanceBar();
 animateHopsBar();
 animateYeastBar();
 animateWheatBar();

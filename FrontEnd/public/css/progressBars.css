@@ -37,7 +37,7 @@
 .maintenanceBar{
     width: 90px;
     height: 400px;
-    background: linear-gradient(to top, green,red);
+    background: linear-gradient(to bottom, green,red);
     z-index: 1;
 }
 
