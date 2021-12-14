@@ -17,70 +17,35 @@
 
     <br>
     <h3> See a specific production:</h3>
-    <a href="{{route("show_production-link")}}">See a production</a>
     <br>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            loadFile();
-            function loadFile() {
-                $.ajax({
-                    url: 'getProductions',
-                    type: 'GET',
-                    datatype: 'json',
-                    success: function (data) {
-                        console.log(data);
-                        let getRequestData = $('#getRequestData');
-                        let beerType = $('#beerType')
-                        for (i in data) {
-                            let tr = $("<tr></tr>").appendTo(getRequestData)
+    <div class = "productions">
+        <table border="1">
+            <tr>
+                <td>Batch Id</td>
+                <td>Machine Status</td>
+                <td>Beer Type</td>
+                <td>Production Size</td>
+                <td>Sucessfull Products</td>
+                <td>Defect Products</td>
+                <td>Production Date</td>
+                <td>Show Production</td>
+            </tr>
 
-                            let batchID = $("<td></td>").appendTo(tr)
-                            let machineID = $("<td></td>").appendTo(tr)
-                            let beerType = $("<td></td>").appendTo(tr)
-                            let productionSize = $("<td></td>").appendTo(tr)
-                            let succeededCount = $("<td></td>").appendTo(tr)
-                            let failedCount = $("<td></td>").appendTo(tr)
-                            let createdAt = $("<td></td>").appendTo(tr)
-
-                            batchID.text(data[i].id)
-                            machineID.text(data[i].machine_id)
-                            beerType.text(data[i].beer_type)
-                            productionSize.text(data[i].production_size)
-                            succeededCount.text(data[i].succeeded_count)
-                            failedCount.text(data[i].failed_count)
-
-                            var dateString = data[i].created_at.toString()
-                            var dateFormattedString = dateString.replace(".000000Z", "")
-                            createdAt.text(dateFormattedString.replace("T", " "))
-
-
-
-
-
-                            // batchID.empty()
-                            // batchID.append(data[i].id)
-                            // beerType.empty()
-                            // beerType.append(data[i].beer_type)
-                        }
-                    }
-                });
-            }
-        });
-    </script>
-
-    <table border="1" id="getRequestData">
-        <tr>
-            <th>Batch ID</th>
-            <th>Machine status</th>
-            <th>Beer Type</th>
-            <th>Production Size</th>
-            <th>Successfull Products</th>
-            <th>Defect Products</th>
-            <th>Production Date</th>
-
-        </tr>
-
-    </table>
+            @foreach($productions as $production)
+                <tr>
+                    <td>{{$production->id}}</td>
+                    <td>{{$production->machine_id}}</td>
+                    <td>{{$production->beer_type}}</td>
+                    <td>{{$production->production_size}}</td>
+                    <td>{{$production->succeeded_count}}</td>
+                    <td>{{$production->failed_count}}</td>
+                    <td>{{$production->created_at}}</td>
+                    <td><a class="show" href="{{ route('show_production-link', [$production->id]) }}">Show production</a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 
 @endsection

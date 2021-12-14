@@ -10,6 +10,6 @@ class Machine extends Model
     use HasFactory;
 
     public function production(){
-        return $this->hasMany(Production::class);
+        return $this->belongsTo(Production::class);
     }
 }

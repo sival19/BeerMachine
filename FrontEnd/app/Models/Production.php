@@ -14,10 +14,10 @@ class Production extends Model
     }
 
     public function machine(){
-        return $this->belongsTo(Machine::class);
+        return $this->hasMany(Machine::class);
     }
 
     public function beer(){
-        return $this->belongsTo(beer::class);
+        return $this->belongsTo(Beer::class);
     }
 }
