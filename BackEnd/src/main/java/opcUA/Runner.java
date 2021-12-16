@@ -31,7 +31,7 @@ public class Runner {
         }, "my-channel");
 
         iopcuaManager.initiateCommand(1);
-        iopcuaManager.startSequence((float) 1,(float) 5,(float) 300,(float) 43.75);
+        iopcuaManager.startSequence((float) 1,(float) 3,(float) 300,(float) 40);
 
 
         iPusherManager.SubscribePusher("App\\Events\\stopButton", pusherEvent -> {
