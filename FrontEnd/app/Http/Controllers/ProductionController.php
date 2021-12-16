@@ -10,6 +10,7 @@ use App\Events\startProdEvent;
 use App\Events\stopButton;
 use App\Models\Machine;
 use App\Models\Production;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -35,9 +36,12 @@ class ProductionController extends Controller
 
     public function show_production($id)
     {
+        $chart = (new LarapexChart)->setTitle('SensorData')
+            ->setDataset([100, 50, 60, 70, 80])
+            ->setType('line');
 
         $production = Production::find($id);
-        return view('showProduction', ['production'=> $production]);
+        return view('showProduction', ['production'=> $production], compact('chart'));
     }
 
     public function beginProduction(Request $request)

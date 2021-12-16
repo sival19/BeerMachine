@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/show_productions', [ProductionController::class, 'show_productions'])->name('show_productions-link');
 Route::get('/show_productions/{show_production}', [ProductionController::class, 'show_production'])->name('show_production-link');
-Route::get('/show_Start_Production', [ProductionController::class, 'startProduction'])->name('production.start');
+Route::get('/', [ProductionController::class, 'startProduction'])->name('production.start');
 
 
 Route::get('/getProductions', [ProductionController::class, 'getProductions'])->name('getProductions');

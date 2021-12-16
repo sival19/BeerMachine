@@ -17,9 +17,12 @@
     <label>{{$production->production_size}}</label>
 
     <div class="items">
+        {{ $chart->container() }}
         THE MOST AWSOME GRAPH! GOES HERE!!!
     </div>
 
+    <script src="{{ $chart->cdn() }}"></script>
+    {{ $chart->script() }}
     </body>
     </html>
 @endsection
