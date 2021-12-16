@@ -90,7 +90,9 @@
 
         </form>
 
+
     </div>
+
     <div class="maintenance">
         <p class="maintenanceP"><strong>Maintenance</strong></p>
         <div class="maintenanceBar" id="maintenanceBar"></div>
@@ -170,7 +172,7 @@
             }
         });
     </script>
-
+    
     <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
