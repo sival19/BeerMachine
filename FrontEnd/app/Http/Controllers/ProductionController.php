@@ -10,6 +10,8 @@ use App\Events\startProdEvent;
 use App\Events\stopButton;
 use App\Models\Machine;
 use App\Models\Production;
+use App\Models\ProductionSensorData;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -35,9 +37,18 @@ class ProductionController extends Controller
 
     public function show_production($id)
     {
+        $labels = ProductionSensorData::all()->where('production_id', $id);
+        $tempvalue = $labels->where('type', 'temp')->pluck( 'value','created_at');
+        $hummValue = $labels->where('type', 'humm')->pluck( 'value','created_at');
+        $labels = ProductionSensorData::pluck('created_at');
+        $chart = (new LarapexChart)->lineChart()
+            ->setTitle('SensorData')
+            ->addData('Temperature',$tempvalue->values()->toArray())
+            ->addData('Humidity', $hummValue->values()->toArray())
+            ->setXAxis($tempvalue->keys()->toArray());
 
         $production = Production::find($id);
-        return view('showProduction', ['production'=> $production]);
+        return view('showProduction', ['production'=> $production], compact('chart'));
     }
 
     public function beginProduction(Request $request)

@@ -13,13 +13,33 @@
     <title>Show production</title>
 
     <h1>Show production</h1>
+    <div class = "productions">
+        <h3> Batch ID: {{$production->id}}</h3>
+        <table border="1" class="table">
+            <tr>
+                <th>Beer Type</th>
+                <th>Production Size</th>
+                <th>Sucessfull Products</th>
+                <th>Defect Products</th>
+                <th>Production Date</th>
+            </tr>
 
-    <label>{{$production->production_size}}</label>
-
-    <div class="items">
-        THE MOST AWSOME GRAPH! GOES HERE!!!
+            <tr>
+                <td>{{$production->beer_type}}</td>
+                <td>{{$production->production_size}}</td>
+                <td>{{$production->succeeded_count}}</td>
+                <td>{{$production->failed_count}}</td>
+                <td>{{$production->created_at}}</td>
+            </tr>
+        </table>
     </div>
 
+    <div class="items">
+        {{ $chart->container() }}
+    </div>
+
+    <script src="{{ $chart->cdn() }}"></script>
+    {{ $chart->script() }}
     </body>
     </html>
 @endsection
