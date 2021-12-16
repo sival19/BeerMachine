@@ -74,20 +74,6 @@
                required>
     </span>
             </p>
-
-            {{--            Work in progress--}}
-            {{--            <div class="all_four_buttons">--}}
-            {{--                <div class="submit1">--}}
-            {{--                    <button type="submit">Start Production</button>--}}
-            {{--                    <button type="submit">Clear</button>--}}
-            {{--                </div>--}}
-
-            {{--                <div class="submit2">--}}
-            {{--                    <button type="submit">Reset</button>--}}
-            {{--                    <button type="submit">Abort</button>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
-
             <button class="start_production submit1 all_four_buttons">Start production</button>
             <button class="clear submit1 all_four_buttons" formaction="/clearButton" value="5" name="clearValue"
                     formnovalidate>Clear
@@ -184,35 +170,6 @@
             }
         });
     </script>
-
-{{--    <div class="stateTable">--}}
-{{--        <table border="1" class="table"> Machine Status--}}
-{{--            <tr>--}}
-{{--                <td id="state.current">15</td>--}}
-{{--                <td id="stateString" class="tableStateString">--}}
-{{--                    <label id="getStateData">3</label>--}}
-{{--                </td>--}}
-{{--            </tr>--}}
-{{--        </table>--}}
-{{--    </div>--}}
-
-
-    <table border="1" class="table">
-        <tr>
-        <tr>
-            <td>Machine State</td>
-
-        </tr>
-        <td id="state.current">17</td>
-        <td>
-            <label id="getStateData">3</label>
-        </td>
-        </tr>
-    </table>
-
-    <div>
-
-    </div>
 
     <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>

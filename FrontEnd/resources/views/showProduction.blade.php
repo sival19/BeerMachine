@@ -10,10 +10,7 @@
         <title>Document</title>
     </head>
     <body>
-    <title>Show production</title>
-
-    <h1>Show production</h1>
-    <div class = "productions">
+       <div class = "productions">
         <h3> Batch ID: {{$production->id}}</h3>
         <table border="1" class="table">
             <tr>
