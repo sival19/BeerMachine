@@ -36,9 +36,8 @@ class ProductionController extends Controller
 
     public function show_production($id)
     {
-        $chart = (new LarapexChart);
-        $chart->labels('1998');
-        $chart->dataset('set1','line',[1,2,3,4]);
+        $chart = (new LarapexChart)->setTitle('SensorData')
+            ->setDataset([1, 2, 3, 4, 5]);
 
         $production = Production::find($id);
         return view('showProduction', ['production'=> $production], compact('chart'));
