@@ -37,8 +37,10 @@ class ProductionController extends Controller
 
     public function show_production($id)
     {
-        $humidity = ProductionSensorData::all();
-        $humidity->where('id',$id);
+        $labels = ProductionSensorData::all();
+        $tempvalue = $labels->where('type', 'temp')->pluck( 'value','created_at');
+        $hummValue = $labels->where('type', 'humm')->pluck( 'value','created_at');
+        $labels = ProductionSensorData::pluck('created_at');
         $chart = (new LarapexChart)->lineChart()
             ->setTitle('SensorData')
             ->addData('Temperature',[40, 93, 35, 42, 18, 82])
