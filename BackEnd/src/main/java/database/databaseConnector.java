@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 //import org.apache.ibatis.jdbc.ScriptRunner;
 
@@ -19,6 +17,7 @@ public class databaseConnector {
     private String username = "root";
     private String password = "secret";
     private Connection connection = null;
+    private int count;
 
     private databaseConnector() {
         initializePostgresqlDatabase();
@@ -60,5 +59,19 @@ public class databaseConnector {
         } finally {
             if (connection == null) System.exit(-1);
         }
+    }
+
+    public int getRowCount() {
+        Statement s = null;
+        try {
+            s = connection.createStatement();
+            ResultSet r = s.executeQuery("SELECT COUNT(*) AS rowcount FROM productions");
+            r.next();
+            count = r.getInt("rowcount") ;
+            r.close() ;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 }

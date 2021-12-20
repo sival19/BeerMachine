@@ -155,14 +155,21 @@ public class OpcUAManager implements IOPCUAManager{
     }
 
     @Override
-    public void saveSensorDataTemperature (){
+    public void saveSensorData (String dataType){
         iopcuaManager = OpcUAManager.getInstance();
         iDataManager = databaseManager.getInstance();
+        String type = "";
+        float value = 0;
 
         //Reading value and entering value for SensorData object
-        int productionId = 1;
-        String type = "temp";
-        float value = (float) iopcuaManager.readNode("ns=6;s=::Program:Data.Value.Temperature").getValue();
+        int productionId = iDataManager.getRowcount() + 1;
+        if (dataType == "temp"){
+            type = "temp";
+            value = (float) iopcuaManager.readNode("ns=6;s=::Program:Data.Value.Temperature").getValue();
+        } else if (dataType == "humm"){
+            type = "humm";
+            value = (float) iopcuaManager.readNode("ns=6;s=::Program:Data.Value.RelHumidity").getValue();
+        }
 
         //Creating timestamp
         Date date = new Date();
@@ -220,10 +227,11 @@ public class OpcUAManager implements IOPCUAManager{
                      opcUAManager.saveProduction();
                  } else if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 9) {
                      opcUAManager.saveProduction();
-                 } else if (nodeId == "ns=6;s=::Program:Data.Value.Temperature"){
-                     opcUAManager.saveSensorDataTemperature();
+                 } else if (nodeId == "ns=6;s=::Program:Data.Value.RelHumidity"){
+                     opcUAManager.saveSensorData("humm");
+                 } else if (nodeId == "ns=6;s=::Program:Data.Value.Temperature") {
+                     opcUAManager.saveSensorData("temp");
                  }
-
 
 
 

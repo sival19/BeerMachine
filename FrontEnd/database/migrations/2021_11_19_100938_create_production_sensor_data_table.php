@@ -21,9 +21,6 @@ class CreateProductionSensorDataTable extends Migration
             $table->string('type');
             $table->float('value');
             $table->timestamps();
-
-
-            $table->foreign('production_id')->references('id')->on('productions');
         });
     }
 

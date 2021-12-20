@@ -11,7 +11,7 @@ public interface IOPCUAManager {
     Variant readNode(String nodeID);
     Variant readNode(String nodeID, String event);
     void saveProduction();
-    void saveSensorDataTemperature();
+    void saveSensorData(String dataType);
     void initiateCommand(int command);
     void startSequence(float batch, float productId, float amount, float speed);
 }

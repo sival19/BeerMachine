@@ -10,6 +10,7 @@ public class databaseManager implements IDataManager{
     //private IMapper iMapper;
     private PreparedStatement preparedStatement;
     private databaseConnector databaseConnector;
+    private int rowcount;
 
     private static databaseManager databaseManager;
 
@@ -48,6 +49,12 @@ public class databaseManager implements IDataManager{
             throwables.printStackTrace();
         }
         return true;
+    }
+
+    @Override
+    public int getRowcount() {
+        rowcount = databaseConnector.getRowCount();
+        return rowcount;
     }
 
 }
