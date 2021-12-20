@@ -162,8 +162,6 @@
                                 loadFile()
 
                             }
-                            // let li = $("<li></li>").appendTo(td);
-                            // li.text(data[i].status);
                         }
                     }
                 });
