@@ -1,6 +1,7 @@
 package database;
 
 import Objects.Production;
+import Objects.SensorData;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -22,7 +23,7 @@ public class databaseManager implements IDataManager{
     }
 
     @Override
-    public boolean saveProduction(Object object) {
+    public boolean saveObject(Object object) {
         try {
             if (object instanceof Production) {
                 Production production = (Production) object;
@@ -33,6 +34,14 @@ public class databaseManager implements IDataManager{
                 preparedStatement.setInt(4, production.getSucceededCount());
                 preparedStatement.setInt(5, production.getFailedCount());
                 preparedStatement.setTimestamp(6, production.getTimestamp());
+                preparedStatement.execute();
+            }else if (object instanceof SensorData){
+                SensorData sensorData = (SensorData) object;
+                preparedStatement = databaseConnector.getConnection().prepareStatement("INSERT INTO production_sensor_data(production_id, type, value, created_at) VALUES (?,?,?,?)");
+                preparedStatement.setInt(1, sensorData.getProductionId());
+                preparedStatement.setString(2, sensorData.getType());
+                preparedStatement.setDouble(3, sensorData.getValue());
+                preparedStatement.setTimestamp(4, sensorData.getTimestamp());
                 preparedStatement.execute();
             }
         }catch (SQLException throwables) {

@@ -2,6 +2,7 @@ package opcUA;
 
 
 import Objects.Production;
+import Objects.SensorData;
 import com.pusher.rest.Pusher;
 import database.IDataManager;
 import database.databaseManager;
@@ -150,7 +151,30 @@ public class OpcUAManager implements IOPCUAManager{
         production.setMachineId(machineId);
         production.setSucceededCount(succeededCount);
         production.setTimestamp(timestamp);
-        iDataManager.saveProduction(production);
+        iDataManager.saveObject(production);
+    }
+
+    @Override
+    public void saveSensorDataTemperature (){
+        iopcuaManager = OpcUAManager.getInstance();
+        iDataManager = databaseManager.getInstance();
+
+        //Reading value and entering value for SensorData object
+        int productionId = 1;
+        String type = "temp";
+        float value = (float) iopcuaManager.readNode("ns=6;s=::Program:Data.Value.Temperature").getValue();
+
+        //Creating timestamp
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
+
+        //New SensorData object
+        SensorData sensorData = new SensorData();
+        sensorData.setProductionId(productionId);
+        sensorData.setType(type);
+        sensorData.setValue(value);
+        sensorData.setTimestamp(timestamp);
+        iDataManager.saveObject(sensorData);
     }
 
     @Override
@@ -192,15 +216,14 @@ public class OpcUAManager implements IOPCUAManager{
                 pusher.trigger("my-channel", event, Collections.singletonMap("message", v.getValue()));
                 System.out.println(v.getValue());
 
-//                 if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
-//                     opcUAManager.saveProduction();
-//                 } else if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 9) {
-//                     opcUAManager.saveProduction();
-//                 }
+                 if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
+                     opcUAManager.saveProduction();
+                 } else if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 9) {
+                     opcUAManager.saveProduction();
+                 } else if (nodeId == "ns=6;s=::Program:Data.Value.Temperature"){
+                     opcUAManager.saveSensorDataTemperature();
+                 }
 
-//                if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
-//                    opcUAManager.saveProduction();
-//                }
 
 
 

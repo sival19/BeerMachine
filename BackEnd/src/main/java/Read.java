@@ -119,7 +119,7 @@ public class Read {
             production.setMachineId(MachineId);
             production.setSucceededCount(SucceededCount);
             production.setFailedCount(failed);
-            iDataManager.saveProduction(production);
+            iDataManager.saveObject(production);
 
         } catch (Throwable ex) {
             ex.printStackTrace();
