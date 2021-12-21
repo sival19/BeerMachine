@@ -155,20 +155,22 @@ public class OpcUAManager implements IOPCUAManager{
     }
 
     @Override
-    public void saveSensorData (String dataType){
+    public void saveSensorData (String dataType, float value){
         iopcuaManager = OpcUAManager.getInstance();
         iDataManager = databaseManager.getInstance();
         String type = "";
-        float value = 0;
+        float tempHumm = 0;
+        float hummidity = 0;
+
 
         //Reading value and entering value for SensorData object
         int productionId = iDataManager.getRowcount() + 1;
         if (dataType == "temp"){
             type = "temp";
-            value = (float) iopcuaManager.readNode("ns=6;s=::Program:Data.Value.Temperature").getValue();
+            tempHumm = value;
         } else if (dataType == "humm"){
             type = "humm";
-            value = (float) iopcuaManager.readNode("ns=6;s=::Program:Data.Value.RelHumidity").getValue();
+            tempHumm = value;
         }
 
         //Creating timestamp
@@ -179,7 +181,7 @@ public class OpcUAManager implements IOPCUAManager{
         SensorData sensorData = new SensorData();
         sensorData.setProductionId(productionId);
         sensorData.setType(type);
-        sensorData.setValue(value);
+        sensorData.setValue(tempHumm);
         sensorData.setTimestamp(timestamp);
         iDataManager.saveObject(sensorData);
     }
@@ -228,9 +230,12 @@ public class OpcUAManager implements IOPCUAManager{
                  } else if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 9) {
                      opcUAManager.saveProduction();
                  } else if (nodeId == "ns=6;s=::Program:Data.Value.RelHumidity"){
-                     opcUAManager.saveSensorData("humm");
+                     float humidity = (float) value.getValue();
+                     opcUAManager.saveSensorData("humm", humidity);
                  } else if (nodeId == "ns=6;s=::Program:Data.Value.Temperature") {
-                     opcUAManager.saveSensorData("temp");
+                     float temperature = (float) value.getValue();
+                     opcUAManager.saveSensorData("temp", temperature);
+
                  }
 
 
