@@ -232,29 +232,17 @@ public class OpcUAManager implements IOPCUAManager{
                     opcUAManager.saveProduction();
                 } else if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 9) {
                     opcUAManager.saveProduction();
-                } else if (nodeId == "ns=6;s=::Program:Data.Value.Temperature" && (int)opcUAManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent").getValue() == 6){
-                    float temperature = (float) value.getValue();
-                    opcUAManager.saveSensorData("temp", temperature);
-                } else if (nodeId == "ns=6;s=::Program:Data.Value.RelHumidity" && (int)opcUAManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent").getValue() == 6){
-                    float humidity = (float) value.getValue();
-                    opcUAManager.saveSensorData("humm", humidity);
+                } else if (nodeId == "ns=6;s=::Program:Data.Value.Temperature"){
+                    if((int)opcUAManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent").getValue() == 6){
+                        float temperature = (float)opcUAManager.readNode("ns=6;s=::Program:Data.Value.Temperature").getValue();
+                        opcUAManager.saveSensorData("temp", temperature);
+                    }
+                } else if (nodeId == "ns=6;s=::Program:Data.Value.RelHumidity"){
+                    if ((int)opcUAManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent").getValue() == 6){
+                        float humidity = (float)opcUAManager.readNode("ns=6;s=::Program:Data.Value.RelHumidity").getValue();
+                        opcUAManager.saveSensorData("humm", humidity);
+                    }
                 }
-
-//                 if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
-//                     opcUAManager.saveProduction();
-//                 } else if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 9) {
-//                     opcUAManager.saveProduction();
-//                 } else if (nodeId == "ns=6;s=::Program:Data.Value.RelHumidity"){
-//                     float humidity = (float) value.getValue();
-//                     opcUAManager.saveSensorData("humm", humidity);
-//                 } else if (nodeId == "ns=6;s=::Program:Data.Value.Temperature") {
-//                     float temperature = (float) value.getValue();
-//                     opcUAManager.saveSensorData("temp", temperature);
-//
-//                 }
-
-
-
             });
             Thread.sleep(5000000);
         }
