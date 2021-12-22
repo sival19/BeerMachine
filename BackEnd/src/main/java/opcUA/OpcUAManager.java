@@ -87,6 +87,7 @@ public class OpcUAManager implements IOPCUAManager{
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
+        //disconnect
         client.disconnect();
         return value;
     }
