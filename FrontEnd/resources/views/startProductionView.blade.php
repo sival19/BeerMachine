@@ -63,7 +63,7 @@
         </span>
                 <span>
                 <input type="number" name="amount" onkeypress="return event.charCode !== 45" class="form-control name"
-                       id="productionAmount" min="1" placeholder="100"
+                       id="productionAmount" min="1" value="100"
                        required>
             </span>
             </p>
@@ -72,7 +72,7 @@
             <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed:</label>
         </span>
                 <span>
-        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="1" placeholder="111" max="600"
+        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="1"  value="111" max="600"
                required>
     </span>
             </p>
