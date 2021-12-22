@@ -65,6 +65,7 @@ public class OpcUAManager implements IOPCUAManager{
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
+        client.disconnect();
         return value;
     }
 
@@ -86,6 +87,7 @@ public class OpcUAManager implements IOPCUAManager{
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
+        client.disconnect();
         return value;
     }
 
@@ -257,6 +259,7 @@ public class OpcUAManager implements IOPCUAManager{
             OpcUaClient client = opcUAconnector.connectOPC();
             NodeId node = NodeId.parse(nodeId);
             client.writeValue(node, DataValue.valueOnly(new Variant(value))).get();
+            client.disconnect();
         }
         catch(Throwable ex)
         {
@@ -271,6 +274,7 @@ public class OpcUAManager implements IOPCUAManager{
             OpcUaClient client = opcUAconnector.connectOPC();
             NodeId node = NodeId.parse(nodeId);
             client.writeValue(node, DataValue.valueOnly(new Variant(value))).get();
+            client.disconnect();
         }
         catch(Throwable ex)
         {
@@ -285,6 +289,7 @@ public class OpcUAManager implements IOPCUAManager{
             OpcUaClient client = opcUAconnector.connectOPC();
             NodeId node = NodeId.parse(nodeId);
             client.writeValue(node, DataValue.valueOnly(new Variant(value))).get();
+            client.disconnect();
         }
         catch(Throwable ex)
         {
