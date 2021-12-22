@@ -12,6 +12,7 @@
     <ul>
         <li><a href="{{route("production.start")}}">Home</a></li>
         <li><a href="{{route("show_productions-link")}}">Show Productions</a></li>
+        <li><a href="{{route("oee")}}">Show OEE</a></li>
     </ul>
 </nav>
 @yield('content')

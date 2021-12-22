@@ -9,6 +9,7 @@ use App\Events\resetButton;
 use App\Events\startProdEvent;
 use App\Events\stopButton;
 use App\Models\Machine;
+use App\Models\Oee;
 use App\Models\Production;
 use App\Models\ProductionSensorData;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -93,6 +94,7 @@ class ProductionController extends Controller
 
     public function startProduction()
     {
+
 
         event(new readState());
         return view('startProductionView');

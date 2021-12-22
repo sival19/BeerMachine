@@ -1,0 +1,15 @@
+.graphs{
+    display: inline-block;
+    border-radius: 5px;
+    width: 500px;
+    margin: 20px auto auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: left;
+}
+
+
+body {
+    background-color: bisque;
+}
+
