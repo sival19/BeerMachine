@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="{{'/css/start.css'}}">
         <link rel="stylesheet" type="text/css" href="{{'/css/showProduction.css'}}">
 
+        <script type="text/javascript" src="{{'js/changeSpeed.js'}}"></script>
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
         <meta charset="utf-8">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -45,15 +46,16 @@
             <label for="productType" class="form-label">Select type of beer:</label>
         </span>
                 <span>
-                <select type="text" name="type" class="form-control name" id="productType" required>
-            <option value="0.0">Pilsner</option>
-            <option value="1.0">Wheat</option>
-            <option value="2.0">IPA</option>
-            <option value="3.0">Stout</option>
-            <option value="4.0">Ale</option>
-            <option value="5.0">Alcohol Free</option>
-            </select>
-            </span>
+                    <select type="text" name="type" class="form-control name" id="productType" required
+                            onchange="changeSpeed(event)">
+                    <option value="0.0">Pilsner</option>
+                    <option value="1.0">Wheat</option>
+                    <option value="2.0">IPA</option>
+                    <option value="3.0">Stout</option>
+                    <option value="4.0">Ale</option>
+                    <option value="5.0">Alcohol Free</option>
+                    </select>
+                </span>
             </p>
             <p>
         <span>
@@ -61,7 +63,7 @@
         </span>
                 <span>
                 <input type="number" name="amount" onkeypress="return event.charCode !== 45" class="form-control name"
-                       id="productionAmount" min="1" placeholder="1000"
+                       id="productionAmount" min="1" placeholder="100"
                        required>
             </span>
             </p>
@@ -70,7 +72,7 @@
             <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed:</label>
         </span>
                 <span>
-        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="0.0" placeholder="50"
+        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="1" placeholder="111" max="600"
                required>
     </span>
             </p>
@@ -170,7 +172,7 @@
             }
         });
     </script>
-    
+
     <script type="text/javascript" src="{{ asset('js/prod.js') }}"></script>
     <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
 
