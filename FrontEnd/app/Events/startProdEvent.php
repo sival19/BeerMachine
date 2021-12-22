@@ -15,11 +15,6 @@ class startProdEvent implements ShouldBroadcast
     public $speed;
     public $amount;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
     public function __construct($type, $speed, $amount)
     {
         $this->type = $type;
