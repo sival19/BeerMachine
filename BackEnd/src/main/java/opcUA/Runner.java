@@ -63,8 +63,8 @@ public class Runner {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Thread t15 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Status.StateCurrent", "state.current"));
-            t15.start();
+            iopcuaManager.readNode("ns=6;s=::Program:Cube.Status.StateCurrent", "state.current");
+
         }, "readChannel");
 
 
@@ -92,6 +92,8 @@ public class Runner {
         Thread t12 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Malt", "maltAmount"));
         Thread t13 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Wheat", "wheatAmount"));
         Thread t14 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Maintenance.Counter", "maintenance"));
+        Thread t15 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Status.StateCurrent", "state.current"));
+
 
         t1.start();
         t2.start();
@@ -106,6 +108,7 @@ public class Runner {
         t12.start();
         t13.start();
         t14.start();
+        t15.start();
 
     }
 }

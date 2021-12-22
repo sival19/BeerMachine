@@ -230,6 +230,7 @@ public class OpcUAManager implements IOPCUAManager{
 
                 if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 17){
                     opcUAManager.saveProduction();
+                    opcUAManager.initiateCommand(1);
                 } else if (nodeId == "ns=6;s=::Program:Cube.Status.StateCurrent" && (int) value.getValue() == 9) {
                     opcUAManager.saveProduction();
                 } else if (nodeId == "ns=6;s=::Program:Data.Value.Temperature"){
