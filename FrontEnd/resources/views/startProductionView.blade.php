@@ -72,7 +72,7 @@
             <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed:</label>
         </span>
                 <span>
-        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="1"  value="111" max="600"
+        <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="1"  value="486" max="600"
                required>
     </span>
             </p>
