@@ -200,7 +200,7 @@ public class OpcUAManager implements IOPCUAManager{
             ReadValueId readValueId = new ReadValueId(nodeIdparse, AttributeId.Value.uid(), null, null);
 
             // create a subscription @ 1000ms
-            UaSubscription subscription = client.getSubscriptionManager().createSubscription(1000.0).get();
+            UaSubscription subscription = client.getSubscriptionManager().createSubscription(10.0).get();
 
             // important: client handle must be unique per item
             UInteger clientHandle = subscription.getSubscriptionId();

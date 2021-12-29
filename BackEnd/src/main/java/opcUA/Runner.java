@@ -82,32 +82,32 @@ public class Runner {
         Thread t1 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:product.produced", "production.produced"));
         Thread t2 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Admin.ProdDefectiveCount", "production.Defective"));
         Thread t3 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:product.good", "production.Good"));
-        Thread t4 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.RelHumidity", "sensor.Humidity"));
-        Thread t5 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.Temperature", "sensor.Temperature"));
-        Thread t6 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.Vibration", "sensor.Vibration"));
+//        Thread t4 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.RelHumidity", "sensor.Humidity"));
+//        Thread t5 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.Temperature", "sensor.Temperature"));
+//        Thread t6 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Data.Value.Vibration", "sensor.Vibration"));
         Thread t8 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Status.StateCurrent", "state.current"));
-        Thread t9 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Yeast", "yeastAmount"));
-        Thread t10 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Barley", "barleyAmount"));
-        Thread t11 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Hops", "hopsAmount"));
-        Thread t12 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Malt", "maltAmount"));
-        Thread t13 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Wheat", "wheatAmount"));
-        Thread t14 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Maintenance.Counter", "maintenance"));
+//        Thread t9 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Yeast", "yeastAmount"));
+//        Thread t10 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Barley", "barleyAmount"));
+//        Thread t11 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Hops", "hopsAmount"));
+//        Thread t12 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Malt", "maltAmount"));
+//        Thread t13 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Inventory.Wheat", "wheatAmount"));
+//        Thread t14 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Maintenance.Counter", "maintenance"));
         Thread t15 = new Thread(() -> iopcuaManager.subscribe("ns=6;s=::Program:Cube.Status.StateCurrent", "state.current"));
 
 
         t1.start();
         t2.start();
         t3.start();
-        t4.start();
-        t5.start();
-        t6.start();
+//        t4.start();
+//        t5.start();
+//        t6.start();
         t8.start();
-        t9.start();
-        t10.start();
-        t11.start();
-        t12.start();
-        t13.start();
-        t14.start();
+//        t9.start();
+//        t10.start();
+//        t11.start();
+//        t12.start();
+//        t13.start();
+//        t14.start();
         t15.start();
 
     }

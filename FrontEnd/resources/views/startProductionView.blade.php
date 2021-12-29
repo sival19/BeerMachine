@@ -69,7 +69,7 @@
             </p>
             <p>
         <span>
-            <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed:</label>
+            <label for="machineSpeed" name="machineSpeed" class="form-label">Enter desired machine speed, the speed inserted is the optimal based on OEE</label>
         </span>
                 <span>
         <input type="number" name="machineSpeed" class="form-control name" id="machineSpeed" min="1"  value="486" max="600"
